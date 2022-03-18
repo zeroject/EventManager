@@ -1,4 +1,4 @@
 package DAL;
 
-public class TIcketDAO {
+public class TicketDAO {
 }

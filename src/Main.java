@@ -8,13 +8,13 @@ public class Main extends Application
 {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MVC/View/StartupWarning.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MVC/view/LoginView.fxml"));
         Parent root = loader.load();
-        root.getStylesheets().add("file:css/style.css");
-        primaryStage.setTitle("Warning");
+        //root.getStylesheets().add("");
+        primaryStage.setTitle("EventManager");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        primaryStage.setResizable(true);
+        primaryStage.setResizable(false);
     }
 
     public static void main(String[] args) {
