@@ -1,5 +1,5 @@
 # Database Properties
-config.properties
+database.Properties
 
 # Compiled class file
 *.class
