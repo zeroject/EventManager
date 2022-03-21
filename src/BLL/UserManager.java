@@ -2,8 +2,9 @@ package BLL;
 
 import BE.User;
 import DAL.UserDAO;
-
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class UserManager {
 
@@ -13,10 +14,12 @@ public class UserManager {
         userDAO = new UserDAO();
     }
 
-    public User createUser(String firstName, String lastName, int mNumber, String email, boolean isManager, boolean isAdmin){
+    public List<User> getAllUsers(){
+        return userDAO.getAllUsers();
+    }
 
-        User user = userDAO.createUser(firstName, lastName, mNumber, email, isManager, isAdmin);
-        return user;
+    public User createUser(String firstName, String lastName, int mNumber, String email, boolean isManager, boolean isAdmin) throws SQLException {
+        return userDAO.createUser(firstName, lastName, mNumber, email, isManager, isAdmin);
     }
 
     public void deleteUser(User user){

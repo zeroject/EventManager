@@ -1,13 +1,11 @@
 package DAL;
 
 import BE.Ticket;
-import BE.User;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TicketDAO {
 
@@ -17,9 +15,34 @@ public class TicketDAO {
         connection = new DatabaseConnector();
     }
 
+    public List<Ticket> getAllTickets() {
+        ArrayList<Ticket> tickets = new ArrayList<>();
+
+        try(Connection conn = connection.getConnection()){
+            String sql = "SELECT * FROM Tickets;";
+            Statement statement = conn.createStatement();
+
+            if (statement.execute(sql)){
+                ResultSet rs = statement.getResultSet();
+                while (rs.next()){
+                    int id = rs.getInt("ID");
+                    String bImage = rs.getString("BImage");
+                    String ticketType = rs.getString("TicketType");
+
+                    Ticket ticket = new Ticket(id, bImage, ticketType);
+                    tickets.add(ticket);
+                }
+            }
+
+        }catch (SQLException throwable){
+            throwable.getNextException();
+        }
+        return tickets;
+    }
+
     public Ticket addUserToEvent(int userID, int eventID, String bImage, String ticketType)
     {
-        String sql = "INSERT INTO CatMovie(UserID, EventID, BImage, TicketType) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Tickets(UserID, EventID, BImage, TicketType) VALUES (?, ?, ?, ?)";
         try (Connection conn = connection.getConnection()) {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, userID);
@@ -41,6 +64,10 @@ public class TicketDAO {
             System.out.println(ex);
         }
         return null;
+    }
+
+    public void deleteUserFromEvent(){
+
     }
 
 }
