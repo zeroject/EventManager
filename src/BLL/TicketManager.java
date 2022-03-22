@@ -17,12 +17,7 @@ public class TicketManager {
         return ticketDAO.getAllTickets();
     }
 
-    public Ticket addUserToEvent(int userID, int eventID, String bImage, String ticketType){
-        return ticketDAO.addUserToEvent(userID, eventID, bImage, ticketType);
+    public void addUserToEvent(int userID, int eventID, String bImage, String ticketType){
+        ticketDAO.addUserToEvent(userID, eventID, bImage, ticketType);
     }
-
-    public void deleteUserFromEvent(){
-        ticketDAO.deleteUserFromEvent();
-    }
-
 }

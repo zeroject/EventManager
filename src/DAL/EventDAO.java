@@ -43,7 +43,7 @@ public class EventDAO {
         return events;
     }
 
-    public Event createEvent(String eventName, String eventDate, String eventLocation, String eventInfo, String startTime, String endTime) throws SQLException {
+    public void createEvent(String eventName, String eventDate, String eventLocation, String eventInfo, String startTime, String endTime) throws SQLException {
         try (Connection conn = connection.getConnection()){
             String sql = "INSERT INTO Events(EventName, EventDate, EventLocation, EventInfo, StartTime, EndTime) values (?,?,?,?,?,?);";
 
@@ -63,24 +63,22 @@ public class EventDAO {
                 }
 
                 Event event = new Event(id, eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
-                return event;
             } catch (SQLException throwables) {
                 throwables.getNextException();
             }
         }
-        return null;
     }
 
-    public void deleteEvent(Event event){
+    public void deleteEvent(int eventID){
         try(Connection conn = connection.getConnection()){
             String sql1 = "DELETE FROM Tickets WHERE EventID =?;";
             String sql2 = "DELETE FROM Events WHERE EventID =?;";
             PreparedStatement preparedStatement1 = conn.prepareStatement(sql1);
-            preparedStatement1.setInt(1, event.getId());
+            preparedStatement1.setInt(1, eventID);
             preparedStatement1.execute();
 
             PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
-            preparedStatement2.setInt(1, event.getId());
+            preparedStatement2.setInt(1, eventID);
             preparedStatement2.execute();
         } catch (Exception throwables) {
             throwables.printStackTrace();
