@@ -20,14 +20,14 @@ public class TicketDAO {
 
         try(Connection conn = connection.getConnection()){
             String sql = "SELECT * FROM Tickets;";
-            Statement statement = conn.createStatement();
 
-            if (statement.execute(sql)){
-                ResultSet rs = statement.getResultSet();
+            try (PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+                ResultSet rs = preparedStatement.getGeneratedKeys();
                 while (rs.next()){
-                    int id = rs.getInt("ID");
-                    String bImage = rs.getString("BImage");
-                    String ticketType = rs.getString("TicketType");
+                    int id = preparedStatement.getResultSet().getInt("ID");
+                    String bImage = preparedStatement.getResultSet().getString("BImage");
+                    String ticketType = preparedStatement.getResultSet().getString("TicketType");
+                    preparedStatement.executeUpdate();
 
                     Ticket ticket = new Ticket(id, bImage, ticketType);
                     tickets.add(ticket);

@@ -19,18 +19,18 @@ public class UserDAO {
 
         try(Connection conn = connection.getConnection()){
             String sql = "SELECT * FROM Users;";
-            Statement statement = conn.createStatement();
 
-            if (statement.execute(sql)){
-                ResultSet rs = statement.getResultSet();
+            try (PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+                ResultSet rs = preparedStatement.getGeneratedKeys();
                 while (rs.next()){
-                    int id = rs.getInt("ID");
-                    String firstName = rs.getString("FName");
-                    String lastName = rs.getString("LName");
-                    int mNumber = rs.getInt("MNumber");
-                    String email = rs.getString("EmailAddress");
-                    boolean isAdmin = rs.getBoolean("IsAdmin");
-                    boolean isManager = rs.getBoolean("IsManager");
+                    int id = preparedStatement.getResultSet().getInt("ID");
+                    String firstName = preparedStatement.getResultSet().getString("FName");
+                    String lastName = preparedStatement.getResultSet().getString("LName");
+                    int mNumber = preparedStatement.getResultSet().getInt("MNumber");
+                    String email = preparedStatement.getResultSet().getString("EmailAddress");
+                    boolean isAdmin = preparedStatement.getResultSet().getBoolean("IsAdmin");
+                    boolean isManager = preparedStatement.getResultSet().getBoolean("IsManager");
+                    preparedStatement.executeUpdate();
 
                     User user = new User(id, firstName, lastName, mNumber, email, isManager, isAdmin);
                     users.add(user);
@@ -58,7 +58,7 @@ public class UserDAO {
         try (Connection conn = connection.getConnection()){
             String sql = "INSERT INTO Users(FName, LName, MNumber, EmailAddress, IsAdmin, IsManager) values (?,?,?,?,?,?);";
 
-            try(PreparedStatement preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
+            try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
                 preparedStatement.setString(1, firstName);
                 preparedStatement.setString(2, lastName);
                 preparedStatement.setInt(3, mobileNumber);
