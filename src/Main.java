@@ -10,7 +10,7 @@ public class Main extends Application
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MVC/view/LoginView.fxml"));
         Parent root = loader.load();
-        //root.getStylesheets().add("");
+        root.getStylesheets().add("file:UI/CSS-Files/main.css");
         primaryStage.setTitle("EventManager");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
