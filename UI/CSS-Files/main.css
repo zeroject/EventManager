@@ -11,9 +11,9 @@
     -fx-background-color: linear-gradient(to bottom left, #ECF6FF, #93C2DB);
 }
 @font-face {
-    font-family: Coolvetica rg;
-    src: local("UI/fonts/coolvetica rg.otf");
+    -fx-font-family: 'Coolvetica Rg';
+    src: url('/UI/CSS-Files/coolvetica.ttf')
 }
 .font{
-    -fx-font-family: "Coolvetica rg";
+    -fx-font-family: "Coolvetica Rg";
 }
