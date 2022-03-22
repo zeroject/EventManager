@@ -40,7 +40,7 @@ public class TicketDAO {
         return tickets;
     }
 
-    public Ticket addUserToEvent(int userID, int eventID, String bImage, String ticketType)
+    public void addUserToEvent(int userID, int eventID, String bImage, String ticketType)
     {
         String sql = "INSERT INTO Tickets(UserID, EventID, BImage, TicketType) VALUES (?, ?, ?, ?)";
         try (Connection conn = connection.getConnection()) {
@@ -58,16 +58,8 @@ public class TicketDAO {
             }
 
             Ticket ticket = new Ticket(id, bImage, ticketType);
-            return ticket;
-
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-        return null;
     }
-
-    public void deleteUserFromEvent(){
-
-    }
-
 }

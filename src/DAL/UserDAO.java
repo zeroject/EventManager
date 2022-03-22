@@ -54,7 +54,7 @@ public class UserDAO {
      * @return
      * @throws SQLException
      */
-    public User createUser(String firstName, String lastName, int mobileNumber, String email, boolean isManager, boolean isAdmin) throws SQLException {
+    public void createUser(String firstName, String lastName, int mobileNumber, String email, boolean isManager, boolean isAdmin) throws SQLException {
         try (Connection conn = connection.getConnection()){
             String sql = "INSERT INTO Users(FName, LName, MNumber, EmailAddress, IsAdmin, IsManager) values (?,?,?,?,?,?);";
 
@@ -74,28 +74,26 @@ public class UserDAO {
                 }
 
                 User user = new User(id, firstName, lastName, mobileNumber, email, isManager, isAdmin);
-                return user;
             } catch (SQLException throwables) {
                 throwables.getNextException();
             }
         }
-        return null;
     }
 
     /**
      * checks what the ID of a specific User and then first deletes the users tickets and then the specific user
-     * @param user to be deleted
+     * @param userID of the object that is to be deleted
      */
-    public void deleteUser(User user){
+    public void deleteUser(int userID){
         try(Connection conn = connection.getConnection()){
             String sql1 = "DELETE FROM Tickets WHERE UserID =?;";
             String sql2 = "DELETE FROM Users WHERE UserID =?;";
             PreparedStatement preparedStatement1 = conn.prepareStatement(sql1);
-            preparedStatement1.setInt(1, user.getId());
+            preparedStatement1.setInt(1, userID);
             preparedStatement1.execute();
 
             PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
-            preparedStatement2.setInt(1, user.getId());
+            preparedStatement2.setInt(1, userID);
             preparedStatement2.execute();
         } catch (Exception throwables) {
             throwables.printStackTrace();

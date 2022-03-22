@@ -18,11 +18,11 @@ public class UserManager {
         return userDAO.getAllUsers();
     }
 
-    public User createUser(String firstName, String lastName, int mNumber, String email, boolean isManager, boolean isAdmin) throws SQLException {
-        return userDAO.createUser(firstName, lastName, mNumber, email, isManager, isAdmin);
+    public void createUser(String firstName, String lastName, int mNumber, String email, boolean isManager, boolean isAdmin) throws SQLException {
+        userDAO.createUser(firstName, lastName, mNumber, email, isManager, isAdmin);
     }
 
-    public void deleteUser(User user){
-        userDAO.deleteUser(user);
+    public void deleteUser(int userID){
+        userDAO.deleteUser(userID);
     }
 }

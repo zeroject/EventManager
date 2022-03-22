@@ -18,11 +18,11 @@ public class EventManager {
         return eventDAO.getAllEvents();
     }
 
-    public Event createEvent(String eventName, String eventDate, String eventLocation, String eventInfo, String startTime, String endTime) throws SQLException {
-        return eventDAO.createEvent(eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
+    public void createEvent(String eventName, String eventDate, String eventLocation, String eventInfo, String startTime, String endTime) throws SQLException {
+        eventDAO.createEvent(eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
     }
 
-    public void deleteEvent(Event event){
-        eventDAO.deleteEvent(event);
+    public void deleteEvent(int eventID){
+        eventDAO.deleteEvent(eventID);
     }
 }
