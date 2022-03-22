@@ -1,0 +1,19 @@
+.sidebar-color{
+    -fx-background-color: white;
+}
+.sidebar-lines{
+    -fx-background-color: #54626C;
+}
+.sidebar-buttons{
+    -fx-background-color: transparent;
+}
+.background{
+    -fx-background-color: linear-gradient(to bottom left, #ECF6FF, #93C2DB);
+}
+@font-face {
+    font-family: Coolvetica rg;
+    src: local("UI/fonts/coolvetica rg.otf");
+}
+.font{
+    -fx-font-family: "Coolvetica rg";
+}

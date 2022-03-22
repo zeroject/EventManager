@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.view.HomePage">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../../UI/CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.view.HomePage">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="64.0">
+      <AnchorPane prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-color">
          <children>
-            <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false">
+            <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -19,7 +20,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="78.0" mnemonicParsing="false">
+            <Button layoutX="9.0" layoutY="75.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -28,7 +29,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="137.0" mnemonicParsing="false">
+            <Button layoutX="9.0" layoutY="137.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +38,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="218.0" mnemonicParsing="false">
+            <Button layoutX="9.0" layoutY="218.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -46,8 +47,8 @@
                   </ImageView>
                </graphic>
             </Button>
-            <AnchorPane layoutY="194.0" prefHeight="5.0" prefWidth="64.0" style="-fx-background-color: black;" />
-            <Button layoutX="9.0" layoutY="272.0" mnemonicParsing="false">
+            <AnchorPane layoutY="194.0" prefHeight="5.0" prefWidth="64.0" styleClass="sidebar-lines" />
+            <Button layoutX="9.0" layoutY="272.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -56,7 +57,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="322.0" mnemonicParsing="false">
+            <Button layoutX="9.0" layoutY="322.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -65,7 +66,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="391.0" mnemonicParsing="false">
+            <Button layoutX="9.0" layoutY="391.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -74,9 +75,15 @@
                   </ImageView>
                </graphic>
             </Button>
-            <AnchorPane layoutY="375.0" prefHeight="5.0" prefWidth="64.0" style="-fx-background-color: black;" />
+            <AnchorPane layoutY="375.0" prefHeight="5.0" prefWidth="64.0" styleClass="sidebar-lines" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="64.0" prefHeight="720.0" prefWidth="5.0" style="-fx-background-color: black;" />
+      <AnchorPane layoutX="64.0" prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-lines" />
+      <Label layoutX="420.0" layoutY="282.0" styleClass="font" text="It seems that no event has been made.">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Button layoutX="625.0" layoutY="348.0" mnemonicParsing="false" text="Create Event" />
    </children>
 </AnchorPane>
