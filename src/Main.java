@@ -8,9 +8,9 @@ public class Main extends Application
 {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MVC/view/LoginView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UI/MVC/view/LoginView.fxml"));
         Parent root = loader.load();
-        root.getStylesheets().add("file:UI/CSS-Files/main.css");
+        root.getStylesheets().add("file:src/UI/CSS-Files/main.css");
         primaryStage.setTitle("EventManager");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

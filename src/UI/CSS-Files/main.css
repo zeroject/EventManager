@@ -12,7 +12,7 @@
 }
 @font-face {
     -fx-font-family: 'Coolvetica Rg';
-    src: url('/UI/CSS-Files/coolvetica.ttf')
+    src: url('/UI/fonts/coolvetica.ttf')
 }
 .font{
     -fx-font-family: "Coolvetica Rg";
