@@ -1,6 +1,6 @@
-package MVC.controller;
+package UI.MVC.controller;
 
-import BLL.CREATESCENE;
+import UI.Utility.CREATESCENE;
 import javafx.fxml.FXML;
 
 public class LoginController {

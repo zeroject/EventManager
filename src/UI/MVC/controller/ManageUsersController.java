@@ -1,4 +1,4 @@
-package MVC.controller;
+package UI.MVC.controller;
 
 public class ManageUsersController {
 }

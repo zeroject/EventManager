@@ -1,4 +1,4 @@
-package MVC.model;
+package UI.MVC.model;
 
 public class LoginModel {
 }

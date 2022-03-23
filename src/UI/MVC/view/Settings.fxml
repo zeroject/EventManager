@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MVC.view.HomePage">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../UI/CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.view.HomePage">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-color">
+      <AnchorPane prefHeight="720.0" prefWidth="64.0" styleClass="sidebar-color">
          <children>
             <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../UI/icon/home.png" />
+                        <Image url="@../../UI/icon/home.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="75.0" mnemonicParsing="false" styleClass="sidebar-buttons">
+            <Button layoutX="9.0" layoutY="78.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../UI/icon/user.png" />
+                        <Image url="@../../UI/icon/user.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -33,7 +31,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../UI/icon/settings.png" />
+                        <Image url="@../../UI/icon/settings.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -42,7 +40,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../UI/icon/create.png" />
+                        <Image url="@../../UI/icon/create.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -52,7 +50,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../UI/icon/delete.png" />
+                        <Image url="@../../UI/icon/delete.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -61,7 +59,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../UI/icon/edit.png" />
+                        <Image url="@../../UI/icon/edit.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -70,7 +68,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../UI/icon/bookmarkADD.png" />
+                        <Image url="@../../UI/icon/bookmarkADD.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -79,11 +77,5 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="64.0" prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-lines" />
-      <Label layoutX="420.0" layoutY="282.0" styleClass="font" text="It seems that no event has been made.">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Label>
-      <Button layoutX="625.0" layoutY="348.0" mnemonicParsing="false" text="Create Event" />
    </children>
 </AnchorPane>
