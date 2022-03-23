@@ -11,6 +11,6 @@ public class LoginController {
     }
     @FXML
     private void login(){
-        CREATESCENE.createScene("/view/HomePage.fxml", "file:UI/CSS-Files/main.css", LoginController.class, false);
+        CREATESCENE.createScene("../view/HomePage.fxml", "file:UI/CSS-Files/main.css", false, this);
     }
 }

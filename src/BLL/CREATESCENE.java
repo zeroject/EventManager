@@ -20,13 +20,12 @@ public class CREATESCENE {
      * @param fxmlPlace
      * @param undecorated
      */
-    public void createScene(String fxmlPlace, String styleSheet, Class clas, boolean undecorated)
+    public void createScene(String fxmlPlace, String styleSheet, boolean undecorated, Object caller)
     {
         try {
-            System.out.println(clas);
             System.out.println(fxmlPlace);
-            Parent root = FXMLLoader.load(clas.getClass().getResource(fxmlPlace));
-            //root.getStylesheets().add("file:UI/CSS-Files/main.css");
+            Parent root = FXMLLoader.load(caller.getClass().getResource(fxmlPlace));
+            root.getStylesheets().add("file:UI/CSS-Files/main.css");
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);
