@@ -27,6 +27,6 @@
          </image>
       </ImageView>
       <AnchorPane layoutX="320.0" layoutY="80.0" prefHeight="240.0" prefWidth="230.0" style="-fx-border-width: 5; -fx-border-color: #54626C; -fx-border-radius: 50;" />
-      <Button layoutX="68.0" layoutY="335.0" mnemonicParsing="false" text="Create User" />
+      <Button layoutX="68.0" layoutY="335.0" mnemonicParsing="false" onAction="#createUser" text="Create User" />
    </children>
 </AnchorPane>
