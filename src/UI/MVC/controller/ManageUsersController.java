@@ -1,5 +1,6 @@
 package UI.MVC.controller;
 
+import BE.User;
 import BLL.UserManager;
 import UI.MVC.model.UserModel;
 import UI.Utility.CREATESCENE;
@@ -20,7 +21,7 @@ public class ManageUsersController implements Initializable {
     UserModel userModel = new UserModel();
 
     @FXML
-    private TableView tvUsers;
+    private TableView<User> tvUsers;
     @FXML
     private TableColumn tcFirstName;
     @FXML
@@ -42,6 +43,7 @@ public class ManageUsersController implements Initializable {
     private Button but;
 
     public ManageUsersController() throws IOException {
+        tvUsers = new TableView<>();
         tcFirstName = new TableColumn<UserManager, String>();
         tcLastName = new TableColumn<UserManager, String>();
         tcMNumber = new TableColumn<UserManager, Integer>();
@@ -81,7 +83,7 @@ public class ManageUsersController implements Initializable {
         CREATESCENE.createScene("../view/createUserView.fxml", "file:../CSS-Files/main.css", false, this);
     }
     public void delete(){
-        userModel.deleteUser(tvUsers.getSelectionModel().getSelectedIndex() + 1);
+        userModel.deleteUser(tvUsers.getSelectionModel().getSelectedItem().getId());
     }
 
     public void edit(){
