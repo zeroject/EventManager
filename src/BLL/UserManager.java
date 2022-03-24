@@ -14,8 +14,8 @@ public class UserManager {
         userDAO = new UserDAO();
     }
 
-    public List<User> getAllUsers(){
-        return userDAO.getAllUsers();
+    public List<User> getAllUsersInEvent(int eventID) throws SQLException {
+        return userDAO.getAllUsersInEvent(eventID);
     }
 
     public void createUser(String firstName, String lastName, int mNumber, String email, boolean isManager, boolean isAdmin) throws SQLException {

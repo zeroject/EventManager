@@ -14,33 +14,19 @@ public class UserDAO {
         connection = new DatabaseConnector();
     }
 
-    public List<User> getAllUsers() {
-        ArrayList<User> users = new ArrayList<>();
+    public List<User> getAllUsersInEvent(int eventID) throws SQLException {
+        ArrayList<User> tickets = new ArrayList<>();
+        Connection conn = connection.getConnection();
+        PreparedStatement query;
+        ResultSet rs;
 
-        try(Connection conn = connection.getConnection()){
-            String sql = "SELECT * FROM Users;";
+        query = conn.prepareStatement("SELECT * FROM Tickets WHERE EventID = ?");
+        query.setInt(1, eventID);
 
-            try (PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                ResultSet rs = preparedStatement.getGeneratedKeys();
-                while (rs.next()){
-                    int id = preparedStatement.getResultSet().getInt("ID");
-                    String firstName = preparedStatement.getResultSet().getString("FName");
-                    String lastName = preparedStatement.getResultSet().getString("LName");
-                    int mNumber = preparedStatement.getResultSet().getInt("MNumber");
-                    String email = preparedStatement.getResultSet().getString("EmailAddress");
-                    boolean isAdmin = preparedStatement.getResultSet().getBoolean("IsAdmin");
-                    boolean isManager = preparedStatement.getResultSet().getBoolean("IsManager");
-                    preparedStatement.executeUpdate();
+        rs = query.executeQuery();
+        while (rs.next()){
 
-                    User user = new User(id, firstName, lastName, mNumber, email, isManager, isAdmin);
-                    users.add(user);
-                }
-            }
-
-        }catch (SQLException throwable){
-            throwable.getNextException();
         }
-        return users;
     }
 
     /**
