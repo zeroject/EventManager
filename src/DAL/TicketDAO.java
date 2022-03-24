@@ -1,11 +1,8 @@
 package DAL;
 
 import BE.Ticket;
-
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TicketDAO {
 
@@ -13,31 +10,6 @@ public class TicketDAO {
 
     public TicketDAO() throws IOException {
         connection = new DatabaseConnector();
-    }
-
-    public List<Ticket> getAllTickets() {
-        ArrayList<Ticket> tickets = new ArrayList<>();
-
-        try(Connection conn = connection.getConnection()){
-            String sql = "SELECT * FROM Tickets;";
-
-            try (PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                ResultSet rs = preparedStatement.getGeneratedKeys();
-                while (rs.next()){
-                    int id = preparedStatement.getResultSet().getInt("ID");
-                    String bImage = preparedStatement.getResultSet().getString("BImage");
-                    String ticketType = preparedStatement.getResultSet().getString("TicketType");
-                    preparedStatement.executeUpdate();
-
-                    Ticket ticket = new Ticket(id, bImage, ticketType);
-                    tickets.add(ticket);
-                }
-            }
-
-        }catch (SQLException throwable){
-            throwable.getNextException();
-        }
-        return tickets;
     }
 
     public void addUserToEvent(int userID, int eventID, String bImage, String ticketType)

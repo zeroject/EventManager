@@ -13,10 +13,6 @@ public class TicketManager {
         ticketDAO = new TicketDAO();
     }
 
-    public List<Ticket> getAllTickets(){
-        return ticketDAO.getAllTickets();
-    }
-
     public void addUserToEvent(int userID, int eventID, String bImage, String ticketType){
         ticketDAO.addUserToEvent(userID, eventID, bImage, ticketType);
     }
