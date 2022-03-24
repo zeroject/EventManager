@@ -79,15 +79,15 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="64.0" prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-lines" />
-      <TableView layoutX="139.0" layoutY="62.0" prefHeight="616.0" prefWidth="1088.0">
+      <TableView fx:id="tvUsers" layoutX="139.0" layoutY="62.0" prefHeight="616.0" prefWidth="1088.0">
         <columns>
-          <TableColumn prefWidth="168.0" text="FirstName" />
-          <TableColumn prefWidth="172.0" text="LastName" />
-            <TableColumn prefWidth="185.0" text="Mobile Number" />
-            <TableColumn prefWidth="265.0" text="EmailAddress" />
-            <TableColumn prefWidth="60.0" text="IsAdmin" />
-            <TableColumn prefWidth="77.0" text="IsManager" />
-            <TableColumn prefWidth="45.0" text="ID" />
+          <TableColumn fx:id="tcFirstName" prefWidth="168.0" text="FirstName" />
+          <TableColumn fx:id="tcLastName" prefWidth="172.0" text="LastName" />
+            <TableColumn fx:id="tcMNumber" prefWidth="185.0" text="Mobile Number" />
+            <TableColumn fx:id="tcEmail" prefWidth="265.0" text="EmailAddress" />
+            <TableColumn fx:id="tcIsAdmin" prefWidth="60.0" text="IsAdmin" />
+            <TableColumn fx:id="tcIsManager" prefWidth="77.0" text="IsManager" />
+            <TableColumn fx:id="tcID" prefWidth="45.0" text="ID" />
             <TableColumn prefWidth="115.0" />
         </columns>
       </TableView>

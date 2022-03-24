@@ -14,7 +14,11 @@ public class UserManager {
         userDAO = new UserDAO();
     }
 
-    public List<User> getAllUsersInEvent(int eventID) throws SQLException {
+    public List<User> getAllManagers() {
+        return userDAO.getAllManagers();
+    }
+
+    public List<User> getAllUsersInEvent(int eventID) {
         return userDAO.getAllUsersInEvent(eventID);
     }
 
