@@ -17,4 +17,12 @@ public class ManageUsersController {
         Stage stage = (Stage) but.getScene().getWindow();
         stage.close();
     }
+    @FXML
+    public void create(){
+        CREATESCENE.createScene("../view/createView.fxml", "file:../CSS-Files/main.css", false, this);
+    }
+    @FXML
+    public void edit(){
+        CREATESCENE.createScene("../view/EditView.fxml", "file:../CSS-Files/main.css", false, this);
+    }
 }
