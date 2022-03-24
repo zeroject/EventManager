@@ -20,7 +20,7 @@ public class UserDAO {
         ResultSet rs;
 
         try (Connection conn = connection.getConnection()) {
-            query = conn.prepareStatement("SELECT * FROM Users WHERE IsManager = 1 OR IsAdmin = 1");
+            query = conn.prepareStatement("SELECT * FROM Users WHERE IsManager = 1 OR IsAdmin = 1;");
 
             rs = query.executeQuery();
             while (rs.next()) {
@@ -47,7 +47,7 @@ public class UserDAO {
         ResultSet rs;
 
         try (Connection conn = connection.getConnection()) {
-            query = conn.prepareStatement("SELECT Users.* FROM Tickets WHERE EventID = ?");
+            query = conn.prepareStatement("SELECT Users.* FROM Tickets WHERE EventID = ?;");
             query.setInt(1, eventID);
 
             rs = query.executeQuery();
