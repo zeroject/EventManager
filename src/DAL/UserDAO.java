@@ -34,6 +34,7 @@ public class UserDAO {
 
                 User user = new User(id, firstName, lastName, mobileNumber, email, isManager, isAdmin);
                 users.add(user);
+                System.out.println(user);
             }
         }catch (SQLException throwable){
             throwable.getNextException();

@@ -48,7 +48,7 @@
                </graphic>
             </Button>
             <AnchorPane layoutY="194.0" prefHeight="5.0" prefWidth="64.0" styleClass="sidebar-lines" />
-            <Button layoutX="9.0" layoutY="272.0" mnemonicParsing="false" styleClass="sidebar-buttons">
+            <Button layoutX="9.0" layoutY="272.0" mnemonicParsing="false" onAction="#delete" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
