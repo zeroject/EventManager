@@ -81,7 +81,7 @@ public class ManageUsersController implements Initializable {
         CREATESCENE.createScene("../view/createUserView.fxml", "file:../CSS-Files/main.css", false, this);
     }
     public void delete(){
-        userModel.deleteUser(tvUsers.getSelectionModel().getSelectedIndex());
+        userModel.deleteUser(tvUsers.getSelectionModel().getSelectedIndex() + 1);
     }
 
     public void edit(){
