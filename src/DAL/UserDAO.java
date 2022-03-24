@@ -15,18 +15,31 @@ public class UserDAO {
     }
 
     public List<User> getAllUsersInEvent(int eventID) throws SQLException {
-        ArrayList<User> tickets = new ArrayList<>();
-        Connection conn = connection.getConnection();
+        ArrayList<User> users = new ArrayList<>();
         PreparedStatement query;
         ResultSet rs;
 
-        query = conn.prepareStatement("SELECT * FROM Tickets WHERE EventID = ?");
-        query.setInt(1, eventID);
+        try (Connection conn = connection.getConnection()) {
+            query = conn.prepareStatement("SELECT Users.* FROM Tickets WHERE EventID = ?");
+            query.setInt(1, eventID);
 
-        rs = query.executeQuery();
-        while (rs.next()){
+            rs = query.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String firstName = rs.getString("FName");
+                String lastName = rs.getString("LName");
+                int mobileNumber = rs.getInt("MNumber");
+                String email = rs.getString("EmailAddress");
+                boolean isAdmin = rs.getBoolean("IsAdmin");
+                boolean isManager = rs.getBoolean("IsManager");
 
+                User user = new User(id, firstName, lastName, mobileNumber, email, isManager, isAdmin);
+                users.add(user);
+            }
+        }catch (SQLException throwable){
+            throwable.getNextException();
         }
+        return users;
     }
 
     /**
