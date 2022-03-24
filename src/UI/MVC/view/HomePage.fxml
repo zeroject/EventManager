@@ -84,6 +84,6 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Button fx:id="but" layoutX="625.0" layoutY="348.0" mnemonicParsing="false" text="Create Event" />
+      <Button fx:id="but" layoutX="625.0" layoutY="348.0" mnemonicParsing="false" onAction="#create" text="Create Event" />
    </children>
 </AnchorPane>
