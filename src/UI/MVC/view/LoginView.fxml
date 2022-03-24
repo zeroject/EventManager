@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" styleClass="background" stylesheets="@../../UI/CSS-Files/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="500.0" styleClass="background" stylesheets="@../../UI/CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.LoginController">
    <children>
       <AnchorPane layoutX="42.0" layoutY="66.0" prefHeight="468.0" prefWidth="416.0" style="-fx-border-width: 7; -fx-border-color: #54626C; -fx-border-radius: 10; -fx-background-radius: 20;" styleClass="sidebar-color">
          <children>
@@ -20,7 +20,7 @@
                   <Font size="41.0" />
                </font>
             </Label>
-            <Button layoutX="185.0" layoutY="325.0" mnemonicParsing="false" onAction="#login" text="Login" />
+            <Button fx:id="but" layoutX="185.0" layoutY="325.0" mnemonicParsing="false" onAction="#login" text="Login" />
          </children>
       </AnchorPane>
    </children>
