@@ -10,7 +10,7 @@ public class LogManager {
     }
 
     public static void main(String[] args) throws IOException {
-        checkLogFile("sheit");
+        checkLogFile("stuff");
     }
 
     public static void checkLogFile(String activity) throws IOException {
