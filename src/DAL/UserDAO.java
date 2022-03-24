@@ -21,7 +21,6 @@ public class UserDAO {
 
         try (Connection conn = connection.getConnection()) {
             query = conn.prepareStatement("SELECT * FROM Users WHERE IsManager = 1 OR IsAdmin = 1;");
-
             rs = query.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("ID");
