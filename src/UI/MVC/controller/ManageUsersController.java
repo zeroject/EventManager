@@ -55,13 +55,13 @@ public class ManageUsersController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         tvUsers.setPlaceholder(new Label("No users found in database"));
 
-        tcFirstName.setCellValueFactory(new PropertyValueFactory<UserManager, String>("FName"));
-        tcLastName.setCellValueFactory(new PropertyValueFactory<UserManager, String>("LName"));
-        tcMNumber.setCellValueFactory(new PropertyValueFactory<UserManager, Integer>("MNumber"));
-        tcEmail.setCellValueFactory(new PropertyValueFactory<UserManager, String>("EmailAddress"));
-        tcIsAdmin.setCellValueFactory(new PropertyValueFactory<UserManager, Boolean>("IsAdmin"));
+        tcFirstName.setCellValueFactory(new PropertyValueFactory<UserManager, String>("FirstName"));
+        tcLastName.setCellValueFactory(new PropertyValueFactory<UserManager, String>("LastName"));
+        tcMNumber.setCellValueFactory(new PropertyValueFactory<UserManager, Integer>("MobileNumber"));
+        tcEmail.setCellValueFactory(new PropertyValueFactory<UserManager, String>("Email"));
+        tcIsAdmin.setCellValueFactory(new PropertyValueFactory<UserManager, Boolean>("Admin"));
         tcIsManager.setCellValueFactory(new PropertyValueFactory<UserManager, Boolean>("IsManager"));
-        tcID.setCellValueFactory(new PropertyValueFactory<UserManager, Integer>("ID"));
+        tcID.setCellValueFactory(new PropertyValueFactory<UserManager, Integer>("Id"));
         try
         {
             tvUsers.setItems(userModel.getAllManagers());

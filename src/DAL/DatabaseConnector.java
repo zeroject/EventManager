@@ -19,9 +19,9 @@ public class DatabaseConnector {
         Properties properties = new Properties();
         properties.load(new FileInputStream(DB_SETTINGS));
         ds = new SQLServerDataSource();
-        ds.setServerName(properties.getProperty("Server"));
-        ds.setDatabaseName(properties.getProperty("Database"));
-        ds.setUser(properties.getProperty("User"));
+        ds.setServerName(properties.getProperty("ServerIp"));
+        ds.setDatabaseName(properties.getProperty("DataBase"));
+        ds.setUser(properties.getProperty("UserName"));
         ds.setPassword(properties.getProperty("Password"));
     }
 
