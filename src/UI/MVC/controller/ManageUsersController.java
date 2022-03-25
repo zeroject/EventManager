@@ -23,19 +23,19 @@ public class ManageUsersController implements Initializable {
     @FXML
     private TableView<User> tvUsers;
     @FXML
-    private TableColumn tcFirstName;
+    private TableColumn<User, String> tcFirstName;
     @FXML
-    private TableColumn tcLastName;
+    private TableColumn<User, String> tcLastName;
     @FXML
-    private TableColumn tcMNumber;
+    private TableColumn<User, Integer> tcMNumber;
     @FXML
-    private TableColumn tcEmail;
+    private TableColumn<User, String> tcEmail;
     @FXML
-    private TableColumn tcIsAdmin;
+    private TableColumn<User, Boolean> tcIsAdmin;
     @FXML
-    private TableColumn tcIsManager;
+    private TableColumn<User, Boolean> tcIsManager;
     @FXML
-    private TableColumn tcID;
+    private TableColumn<User, Integer> tcID;
 
     private CREATESCENE CREATESCENE = new CREATESCENE();
 
@@ -44,26 +44,26 @@ public class ManageUsersController implements Initializable {
 
     public ManageUsersController() throws IOException {
         tvUsers = new TableView<>();
-        tcFirstName = new TableColumn<UserManager, String>();
-        tcLastName = new TableColumn<UserManager, String>();
-        tcMNumber = new TableColumn<UserManager, Integer>();
-        tcEmail = new TableColumn<UserManager, String>();
-        tcIsAdmin = new TableColumn<UserManager, Boolean>();
-        tcIsManager = new TableColumn<UserManager, Boolean>();
-        tcID = new TableColumn<UserManager, Integer>();
+        tcFirstName = new TableColumn<>();
+        tcLastName = new TableColumn<>();
+        tcMNumber = new TableColumn<>();
+        tcEmail = new TableColumn<>();
+        tcIsAdmin = new TableColumn<>();
+        tcIsManager = new TableColumn<>();
+        tcID = new TableColumn<>();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tvUsers.setPlaceholder(new Label("No users found in database"));
 
-        tcFirstName.setCellValueFactory(new PropertyValueFactory<UserManager, String>("FirstName"));
-        tcLastName.setCellValueFactory(new PropertyValueFactory<UserManager, String>("LastName"));
-        tcMNumber.setCellValueFactory(new PropertyValueFactory<UserManager, Integer>("MobileNumber"));
-        tcEmail.setCellValueFactory(new PropertyValueFactory<UserManager, String>("Email"));
-        tcIsAdmin.setCellValueFactory(new PropertyValueFactory<UserManager, Boolean>("Admin"));
-        tcIsManager.setCellValueFactory(new PropertyValueFactory<UserManager, Boolean>("IsManager"));
-        tcID.setCellValueFactory(new PropertyValueFactory<UserManager, Integer>("Id"));
+        tcFirstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        tcLastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        tcMNumber.setCellValueFactory(new PropertyValueFactory<>("MobileNumber"));
+        tcEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        tcIsAdmin.setCellValueFactory(new PropertyValueFactory<>("IsAdmin"));
+        tcIsManager.setCellValueFactory(new PropertyValueFactory<>("IsManager"));
+        tcID.setCellValueFactory(new PropertyValueFactory<>("Id"));
         try
         {
             tvUsers.setItems(userModel.getAllManagers());

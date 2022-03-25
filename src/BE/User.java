@@ -68,7 +68,7 @@ public class User {
         isManager = manager;
     }
 
-    public boolean GetIsAdmin() {
+    public boolean getIsAdmin() {
         return isAdmin;
     }
 
