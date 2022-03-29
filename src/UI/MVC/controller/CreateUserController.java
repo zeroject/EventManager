@@ -1,16 +1,14 @@
 package UI.MVC.controller;
 
-import UI.MVC.model.UserModel;
-import javafx.fxml.FXML;
+import UI.MVC.model.GuestModel;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class CreateUserController {
-    private UserModel userModel = new UserModel();
+    private GuestModel guestModel = new GuestModel();
 
     public TextField userFirstNameField;
     public TextField userLastNameField;
@@ -34,9 +32,7 @@ public class CreateUserController {
             String lastName = userLastNameField.getText();
             int mobileNumber = Integer.parseInt(userMobilNumberField.getText());
             String email = userEmailField.getText();
-            boolean isAdmin = isAdminCheck.isSelected();
-            boolean isEventCordinator = isEventCordinatorCheck.isSelected();
-            userModel.createUser(firstName, lastName, mobileNumber, email, isAdmin, isEventCordinator);
+            guestModel.createGuest(firstName, lastName, mobileNumber, email);
         }
     }
 }

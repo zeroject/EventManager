@@ -1,10 +1,8 @@
 package BLL;
 
-import BE.User;
 import DAL.UserDAO;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 public class UserManager {
 
@@ -14,16 +12,8 @@ public class UserManager {
         userDAO = new UserDAO();
     }
 
-    public List<User> getAllManagers() {
-        return userDAO.getAllManagers();
-    }
-
-    public List<User> getAllUsersInEvent(int eventID) {
-        return userDAO.getAllUsersInEvent(eventID);
-    }
-
-    public void createUser(String firstName, String lastName, int mNumber, String email, boolean isManager, boolean isAdmin) throws SQLException {
-        userDAO.createUser(firstName, lastName, mNumber, email, isManager, isAdmin);
+    public void createUser(String username, String password, boolean isAdmin) throws SQLException {
+        userDAO.createUser(username, password, isAdmin);
     }
 
     public void deleteUser(int userID){

@@ -1,10 +1,11 @@
 package DAL;
 
 import BE.User;
+
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class UserDAO {
 
@@ -14,92 +15,24 @@ public class UserDAO {
         connection = new DatabaseConnector();
     }
 
-    public List<User> getAllManagers() {
-        ArrayList<User> users = new ArrayList<>();
-        PreparedStatement query;
-        ResultSet rs;
-
-        try (Connection conn = connection.getConnection()) {
-            query = conn.prepareStatement("SELECT * FROM Users WHERE IsManager = 1 OR IsAdmin = 1;");
-            rs = query.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("ID");
-                String firstName = rs.getString("FName");
-                String lastName = rs.getString("LName");
-                int mobileNumber = rs.getInt("MNumber");
-                String email = rs.getString("EmailAddress");
-                boolean isAdmin = rs.getBoolean("IsAdmin");
-                boolean isManager = rs.getBoolean("IsManager");
-
-                User user = new User(id, firstName, lastName, mobileNumber, email, isManager, isAdmin);
-                users.add(user);
-                System.out.println(user);
-            }
-        }catch (SQLException throwable){
-            throwable.getNextException();
-        }
-        return users;
-    }
-
-    public List<User> getAllUsersInEvent(int eventID) {
-        ArrayList<User> users = new ArrayList<>();
-        PreparedStatement query;
-        ResultSet rs;
-
-        try (Connection conn = connection.getConnection()) {
-            query = conn.prepareStatement("SELECT Users.* FROM Tickets WHERE EventID = ?;");
-            query.setInt(1, eventID);
-
-            rs = query.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("ID");
-                String firstName = rs.getString("FName");
-                String lastName = rs.getString("LName");
-                int mobileNumber = rs.getInt("MNumber");
-                String email = rs.getString("EmailAddress");
-                boolean isAdmin = rs.getBoolean("IsAdmin");
-                boolean isManager = rs.getBoolean("IsManager");
-
-                User user = new User(id, firstName, lastName, mobileNumber, email, isManager, isAdmin);
-                users.add(user);
-            }
-        }catch (SQLException throwable){
-            throwable.getNextException();
-        }
-        return users;
-    }
-
     /**
      * Uses the SQL command INSERT INTO to create a new User in the database table users
-     * @param firstName of the user
-     * @param lastName of the user
-     * @param mobileNumber of the user
-     * @param email of the user
-     * @param isManager determines if the user is a manager
-     * @param isAdmin determines if the user is an admin
+     * @param username of the user
+     * @param password of the user
+     * @param isAdmin
      * @return
      * @throws SQLException
      */
-    public void createUser(String firstName, String lastName, int mobileNumber, String email, boolean isManager, boolean isAdmin) throws SQLException {
+    public void createUser(String username, String password, boolean isAdmin) throws SQLException {
         try (Connection conn = connection.getConnection()){
-            String sql = "INSERT INTO Users(FName, LName, MNumber, EmailAddress, IsAdmin, IsManager) values (?,?,?,?,?,?);";
+            String sql = "INSERT INTO Users(Username, Password, IsAdmin) values (?,?,?);";
 
             try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                preparedStatement.setString(1, firstName);
-                preparedStatement.setString(2, lastName);
-                preparedStatement.setInt(3, mobileNumber);
-                preparedStatement.setString(4, email);
-                preparedStatement.setBoolean(5, isManager);
-                preparedStatement.setBoolean(6, isAdmin);
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, password);
+                preparedStatement.setBoolean(3, isAdmin);
                 preparedStatement.executeUpdate();
-                ResultSet rs = preparedStatement.getGeneratedKeys();
 
-                int id = 0;
-                if(rs.next()){
-                    id = rs.getInt(1);
-                }
-
-                User user = new User(id, firstName, lastName, mobileNumber, email, isManager, isAdmin);
             } catch (SQLException throwables) {
                 throwables.getNextException();
             }
@@ -113,7 +46,7 @@ public class UserDAO {
     public void deleteUser(int userID){
         try(Connection conn = connection.getConnection()){
             String sql1 = "DELETE FROM Tickets WHERE ID =?;";
-            String sql2 = "DELETE FROM Users WHERE ID =?;";
+            String sql2 = "DELETE FROM Guests WHERE ID =?;";
             PreparedStatement preparedStatement1 = conn.prepareStatement(sql1);
             preparedStatement1.setInt(1, userID);
             preparedStatement1.execute();
@@ -125,5 +58,4 @@ public class UserDAO {
             throwables.printStackTrace();
         }
     }
-
 }

@@ -1,8 +1,8 @@
 package UI.MVC.controller;
 
+import BE.Guest;
 import BE.User;
-import BLL.UserManager;
-import UI.MVC.model.UserModel;
+import UI.MVC.model.GuestModel;
 import UI.Utility.CREATESCENE;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,24 +18,20 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ManageUsersController implements Initializable {
-    UserModel userModel = new UserModel();
+    GuestModel guestModel = new GuestModel();
 
     @FXML
-    private TableView<User> tvUsers;
+    private TableView<Guest> tvUsers;
     @FXML
-    private TableColumn<User, String> tcFirstName;
+    private TableColumn<Guest, String> tcFirstName;
     @FXML
-    private TableColumn<User, String> tcLastName;
+    private TableColumn<Guest, String> tcLastName;
     @FXML
-    private TableColumn<User, Integer> tcMNumber;
+    private TableColumn<Guest, Integer> tcMNumber;
     @FXML
-    private TableColumn<User, String> tcEmail;
+    private TableColumn<Guest, String> tcEmail;
     @FXML
-    private TableColumn<User, Boolean> tcIsAdmin;
-    @FXML
-    private TableColumn<User, Boolean> tcIsManager;
-    @FXML
-    private TableColumn<User, Integer> tcID;
+    private TableColumn<Guest, Integer> tcID;
 
     private CREATESCENE CREATESCENE = new CREATESCENE();
 
@@ -48,8 +44,6 @@ public class ManageUsersController implements Initializable {
         tcLastName = new TableColumn<>();
         tcMNumber = new TableColumn<>();
         tcEmail = new TableColumn<>();
-        tcIsAdmin = new TableColumn<>();
-        tcIsManager = new TableColumn<>();
         tcID = new TableColumn<>();
     }
 
@@ -61,12 +55,10 @@ public class ManageUsersController implements Initializable {
         tcLastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         tcMNumber.setCellValueFactory(new PropertyValueFactory<>("MobileNumber"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        tcIsAdmin.setCellValueFactory(new PropertyValueFactory<>("IsAdmin"));
-        tcIsManager.setCellValueFactory(new PropertyValueFactory<>("IsManager"));
         tcID.setCellValueFactory(new PropertyValueFactory<>("Id"));
         try
         {
-            tvUsers.setItems(userModel.getAllManagers());
+            tvUsers.setItems(guestModel.getAllGuestsInEvent(1));
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -83,7 +75,7 @@ public class ManageUsersController implements Initializable {
         CREATESCENE.createScene("../view/createUserView.fxml", "file:../CSS-Files/main.css", false, this);
     }
     public void delete(){
-        userModel.deleteUser(tvUsers.getSelectionModel().getSelectedItem().getId());
+        guestModel.deleteGuest(tvUsers.getSelectionModel().getSelectedItem().getId());
     }
 
     public void edit(){
