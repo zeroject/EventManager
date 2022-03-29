@@ -1,18 +1,14 @@
 package UI.MVC.controller;
 
-import BLL.EventManager;
 import UI.MVC.model.EventModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.Clock;
 import java.util.ResourceBundle;
 
 public class CreateController implements Initializable
