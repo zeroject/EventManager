@@ -3,36 +3,32 @@ package BE;
 public class Ticket {
 
     private int id;
-    private String bImage;
-    private String ticketType;
+    private int adultAmount;
+    private int childAmount;
 
-    public Ticket(int id, String bImage, String ticketType){
+    public Ticket(int id, int adultAmount, int childAmount){
         this.id = id;
-        this.bImage = bImage;
-        this.ticketType = ticketType;
+        this.adultAmount = adultAmount;
+        this.childAmount = childAmount;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getAdultAmount() {
+        return adultAmount;
     }
 
-    public String getBackgroundImage() {
-        return bImage;
+    public void setAdultAmount(int adultAmount) {
+        this.adultAmount = adultAmount;
     }
 
-    public void setBackgroundImage(String bImage) {
-        this.bImage = bImage;
+    public int getChildAmount() {
+        return childAmount;
     }
 
-    public String getTicketType() {
-        return ticketType;
-    }
-
-    public void setTicketType(String ticketType) {
-        this.ticketType = ticketType;
+    public void setChildAmount(int childAmount) {
+        this.childAmount = childAmount;
     }
 }
