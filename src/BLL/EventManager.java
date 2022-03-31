@@ -22,6 +22,10 @@ public class EventManager {
         eventDAO.createEvent(eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
     }
 
+    public void updateEvent(Event event){
+        eventDAO.updateEvent(event);
+    }
+
     public void deleteEvent(int eventID){
         eventDAO.deleteEvent(eventID);
     }

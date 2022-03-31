@@ -55,17 +55,33 @@ public class EventDAO {
                 preparedStatement.setString(5, startTime);
                 preparedStatement.setString(6, endTime);
                 preparedStatement.executeUpdate();
-                ResultSet rs = preparedStatement.getGeneratedKeys();
 
-                int id = 0;
-                if(rs.next()){
-                    id = rs.getInt(1);
-                }
-
-                Event event = new Event(id, eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
             } catch (SQLException throwables) {
                 throwables.getNextException();
             }
+        }
+    }
+
+    /**
+     * takes every parameter of an already existing event object and then sets the new values into an updated event
+     * @param event returns the value of the updated event
+     */
+    public void updateEvent(Event event){
+        try(Connection conn = connection.getConnection()){
+            String sql = "UPDATE Events SET EventName=?, EventDate=?, EventLocation=?, EventInfo=?, StartTime=?, EndTime=? WHERE ID=?;";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, event.getEventName());
+            preparedStatement.setString(2, event.getEventDate());
+            preparedStatement.setString(3, event.getEventLocation());
+            preparedStatement.setString(4, event.getEventInfo());
+            preparedStatement.setString(5, event.getStartTime());
+            preparedStatement.setString(6, event.getEndTime());
+            preparedStatement.setInt(7, event.getId());
+            if(preparedStatement.executeUpdate() != 1){
+                throw new Exception("Could not update Event");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

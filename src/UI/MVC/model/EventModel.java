@@ -27,8 +27,8 @@ public class EventModel {
         eventManager.createEvent(eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
     }
 
-    public void editEvent(){
-        //TODO
+    public void updateEvent(Event event){
+        eventManager.updateEvent(event);
     }
 
     public void deleteEvent(int eventID){
