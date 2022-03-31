@@ -1,5 +1,6 @@
 package DAL;
 
+import BE.Guest;
 import BE.User;
 
 import java.io.IOException;
@@ -36,6 +37,26 @@ public class UserDAO {
             } catch (SQLException throwables) {
                 throwables.getNextException();
             }
+        }
+    }
+
+    /**
+     * takes every parameter of an already existing user object and then sets the new values into an updated user
+     * @param user returns the value of the updated user
+     */
+    public void updateUser(User user){
+        try(Connection conn = connection.getConnection()){
+            String sql = "UPDATE Users SET Username=?, Password=?, IsAdmin=? WHERE ID=?;";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, user.getUsername());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setBoolean(3, user.getIsAdmin());
+            preparedStatement.setInt(4, user.getId());
+            if(preparedStatement.executeUpdate() != 1){
+                throw new Exception("Could not update User");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,5 +1,6 @@
 package DAL;
 
+import BE.Event;
 import BE.Guest;
 import java.io.IOException;
 import java.sql.*;
@@ -66,7 +67,26 @@ public class GuestDAO {
         }
     }
 
-
+    /**
+     * takes every parameter of an already existing guest object and then sets the new values into an updated guest
+     * @param guest returns the value of the updated guest
+     */
+    public void updateGuest(Guest guest){
+        try(Connection conn = connection.getConnection()){
+            String sql = "UPDATE Guests SET FName=?, LName=?, MNumber=?, EmailAddress=? WHERE ID=?;";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, guest.getfName());
+            preparedStatement.setString(2, guest.getlName());
+            preparedStatement.setInt(3, guest.getmNumber());
+            preparedStatement.setString(4, guest.getEmail());
+            preparedStatement.setInt(5, guest.getId());
+            if(preparedStatement.executeUpdate() != 1){
+                throw new Exception("Could not update Guest");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * checks what the ID of a specific Guest and then first deletes the guests tickets and then the specific guest
