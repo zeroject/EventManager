@@ -63,10 +63,6 @@ public class HomePageController implements Runnable, Initializable
     @FXML
     private void addButton()
     {
-        for (int k = 0; k < eventModel.getAllEvents().size(); k++)
-        {
-            System.out.println("Works " + k);
-        }
         if(!(i == 3 && j == 1)){
             Button temp = new Button("Button " + i);
             int numButton = i;
