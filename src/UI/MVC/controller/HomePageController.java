@@ -64,7 +64,7 @@ public class HomePageController implements Runnable, Initializable
     private void addButton()
     {
         if(!(i == 3 && j == 1)){
-            Button temp = new Button("Button " + i);
+            Button temp = new Button(eventModel.getAllEvents().get(i).getEventName());
             int numButton = i;
             temp.setMinHeight(200);
             temp.setMinWidth(560);
