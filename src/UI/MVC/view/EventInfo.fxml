@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.HomePageController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.EventInfoController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-color">
          <children>
@@ -70,7 +69,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="391.0" mnemonicParsing="false" onAction="#addButton" styleClass="sidebar-buttons">
+            <Button layoutX="9.0" layoutY="391.0" mnemonicParsing="false" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -83,23 +82,19 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="64.0" prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-lines" />
-      <Label layoutX="420.0" layoutY="282.0" styleClass="font" text="It seems that no event has been made.">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Label>
-      <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="91.0" layoutY="32.0" prefHeight="657.0" prefWidth="1159.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
       <ProgressIndicator layoutX="654.0" layoutY="350.0" opacity="0.0" prefHeight="254.0" prefWidth="297.0" progress="0.0" />
-      <Button fx:id="but" layoutX="625.0" layoutY="348.0" mnemonicParsing="false" onAction="#create" text="Create Event" />
+      <TableView fx:id="tvGuestList" layoutX="672.0" layoutY="31.0" prefHeight="638.0" prefWidth="596.0">
+        <columns>
+          <TableColumn fx:id="tcGuestFName" prefWidth="125.6461181640625" text="First Name" />
+          <TableColumn fx:id="tcGuestLName" prefWidth="116.50262451171875" text="Last Name" />
+            <TableColumn fx:id="tcGuestEmail" minWidth="0.0" prefWidth="96.93072509765625" text="Email Address" />
+            <TableColumn fx:id="tcGuestMNumber" prefWidth="121.85888671875" text="Mobile Number" />
+            <TableColumn fx:id="tcNumberOfTicket" prefWidth="133.0" text="Number of tickets" />
+        </columns>
+      </TableView>
+      <TextArea fx:id="taInfoBox" layoutX="80.0" layoutY="473.0" prefHeight="198.0" prefWidth="571.0" promptText="Info Box" />
+      <TextField fx:id="txtSearchField" layoutX="673.0" layoutY="675.0" />
+      <Button fx:id="btnSearch" layoutX="840.0" layoutY="676.0" mnemonicParsing="false" text="Search" />
+      <Button fx:id="btnEditInfo" layoutX="82.0" layoutY="442.0" mnemonicParsing="false" text="Edit Info" />
    </children>
 </AnchorPane>
