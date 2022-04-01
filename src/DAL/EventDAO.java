@@ -21,7 +21,7 @@ public class EventDAO {
             String sql = "SELECT * FROM Events;";
 
             try (PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                ResultSet rs = preparedStatement.getResultSet();
+                ResultSet rs = preparedStatement.getGeneratedKeys();
                 while (rs.next()){
                     int id = preparedStatement.getResultSet().getInt("ID");
                     String eventName = rs.getString("EventName");
