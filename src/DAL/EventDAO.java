@@ -19,24 +19,21 @@ public class EventDAO {
 
         try(Connection conn = connection.getConnection()){
             String sql = "SELECT * FROM Events;";
-            Statement statement = conn.createStatement();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
 
-            if (statement.execute(sql)){
-                ResultSet rs = statement.getResultSet();
-                while (rs.next()){
-                    int id = rs.getInt("ID");
-                    String eventName = rs.getString("EventName");
-                    String eventDate = rs.getString("EventDate");
-                    String eventLocation = rs.getString("EventLocation");
-                    String eventInfo = rs.getString("EventInfo");
-                    String startTime = rs.getString("StartTime");
-                    String endTime = rs.getString("EndTime");
+            while (rs.next()){
+                int id = rs.getInt("ID");
+                String eventName = rs.getString("EventName");
+                String eventDate = rs.getString("EventDate");
+                String eventLocation = rs.getString("EventLocation");
+                String eventInfo = rs.getString("EventInfo");
+                String startTime = rs.getString("StartTime");
+                String endTime = rs.getString("EndTime");
 
-                    Event event = new Event(id, eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
-                    events.add(event);
-                }
+                Event event = new Event(id, eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
+                events.add(event);
             }
-
         }catch (SQLException throwable){
             throwable.printStackTrace();
         }

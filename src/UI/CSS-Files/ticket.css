@@ -1,19 +1,18 @@
-.vertical {
+.ticketBorder {
     border-left: 3px solid black;
     border-bottom: 3px solid black;
     border-top: 20px solid black;
     border-right: 3px solid black;
     height: 350px;
 }
-.horizontalTop {
-    width: 80%;
-    height: 15px;
-    color: Black;
-    background-color: Black;
+.box {
+    height: 90%;
+    width: 30%;
+    background-color: black;
+    margin-left: 20px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
-.horizontal {
-    width: 80%;
-    height: 4px;
-    color: Black;
-    background-color: Black;
+.header1{
+    margin-left: px;
 }
