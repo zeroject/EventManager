@@ -15,22 +15,22 @@ public class EventDAO {
     }
 
     public List<Event> getAllEvents() {
-        List<Event> events = new ArrayList<>();
+        ArrayList<Event> events = new ArrayList<>();
 
         try(Connection conn = connection.getConnection()){
             String sql = "SELECT * FROM Events;";
+            Statement statement = conn.createStatement();
 
-            try (PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                ResultSet rs = preparedStatement.getGeneratedKeys();
+            if (statement.execute(sql)){
+                ResultSet rs = statement.getResultSet();
                 while (rs.next()){
-                    int id = preparedStatement.getResultSet().getInt("ID");
+                    int id = rs.getInt("ID");
                     String eventName = rs.getString("EventName");
                     String eventDate = rs.getString("EventDate");
                     String eventLocation = rs.getString("EventLocation");
                     String eventInfo = rs.getString("EventInfo");
                     String startTime = rs.getString("StartTime");
                     String endTime = rs.getString("EndTime");
-                    preparedStatement.executeUpdate();
 
                     Event event = new Event(id, eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
                     events.add(event);
@@ -38,7 +38,7 @@ public class EventDAO {
             }
 
         }catch (SQLException throwable){
-            throwable.getNextException();
+            throwable.printStackTrace();
         }
         return events;
     }
