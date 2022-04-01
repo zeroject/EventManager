@@ -1,5 +1,7 @@
 package UI.MVC.controller;
 
+import BE.Event;
+import UI.MVC.model.EventModel;
 import UI.Utility.CREATESCENE;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,12 +26,14 @@ public class HomePageController implements Runnable, Initializable
     private GridPane gridPane;
 
     private CREATESCENE CREATESCENE = new CREATESCENE();
+    private EventModel eventModel = new EventModel();
     private int i = 0;
     private int j = 0;
 
     Thread t = new Thread();
 
-    public HomePageController(){
+    public HomePageController() throws IOException
+    {
         gridPane = new GridPane();
         t.start();
     }
@@ -58,6 +63,10 @@ public class HomePageController implements Runnable, Initializable
     @FXML
     private void addButton()
     {
+        for (int k = 0; k < eventModel.getAllEvents().size(); k++)
+        {
+            System.out.println("Works " + k);
+        }
         if(!(i == 3 && j == 1)){
             Button temp = new Button("Button " + i);
             int numButton = i;
@@ -79,6 +88,10 @@ public class HomePageController implements Runnable, Initializable
 
     @Override public void initialize(URL location, ResourceBundle resources)
     {
-        addButton();
+        for (int k = 0; k < eventModel.getAllEvents().size(); k++)
+        {
+            System.out.println("Works " + k);
+            addButton();
+        }
     }
 }
