@@ -23,7 +23,7 @@ public class EventDAO {
             try (PreparedStatement preparedStatement = conn.prepareStatement(sql)){
                 ResultSet rs = preparedStatement.getGeneratedKeys();
                 while (rs.next()){
-                    int id = rs.getInt("ID");
+                    int id = preparedStatement.getResultSet().getInt("ID");
                     String eventName = preparedStatement.getResultSet().getString("EventName");
                     String eventDate = preparedStatement.getResultSet().getString("EventDate");
                     String eventLocation = preparedStatement.getResultSet().getString("EventLocation");

@@ -1,0 +1,19 @@
+.vertical {
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+    border-top: 20px solid black;
+    border-right: 3px solid black;
+    height: 350px;
+}
+.horizontalTop {
+    width: 80%;
+    height: 15px;
+    color: Black;
+    background-color: Black;
+}
+.horizontal {
+    width: 80%;
+    height: 4px;
+    color: Black;
+    background-color: Black;
+}
