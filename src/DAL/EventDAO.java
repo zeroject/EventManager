@@ -15,21 +15,21 @@ public class EventDAO {
     }
 
     public List<Event> getAllEvents() {
-        ArrayList<Event> events = new ArrayList<>();
+        List<Event> events = new ArrayList<>();
 
         try(Connection conn = connection.getConnection()){
             String sql = "SELECT * FROM Events;";
 
             try (PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                ResultSet rs = preparedStatement.getGeneratedKeys();
+                ResultSet rs = preparedStatement.getResultSet();
                 while (rs.next()){
                     int id = preparedStatement.getResultSet().getInt("ID");
-                    String eventName = preparedStatement.getResultSet().getString("EventName");
-                    String eventDate = preparedStatement.getResultSet().getString("EventDate");
-                    String eventLocation = preparedStatement.getResultSet().getString("EventLocation");
-                    String eventInfo = preparedStatement.getResultSet().getString("EventInfo");
-                    String startTime = preparedStatement.getResultSet().getString("StartTime");
-                    String endTime = preparedStatement.getResultSet().getString("EndTime");
+                    String eventName = rs.getString("EventName");
+                    String eventDate = rs.getString("EventDate");
+                    String eventLocation = rs.getString("EventLocation");
+                    String eventInfo = rs.getString("EventInfo");
+                    String startTime = rs.getString("StartTime");
+                    String endTime = rs.getString("EndTime");
                     preparedStatement.executeUpdate();
 
                     Event event = new Event(id, eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
