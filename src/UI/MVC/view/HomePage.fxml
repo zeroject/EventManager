@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.HomePageController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.HomePageController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-color">
          <children>
@@ -83,12 +83,12 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="64.0" prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-lines" />
-      <Label layoutX="420.0" layoutY="282.0" styleClass="font" text="It seems that no event has been made.">
+      <Label fx:id="nothingLbl" layoutX="420.0" layoutY="282.0" styleClass="font" text="It seems that no event has been made.">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="91.0" layoutY="32.0" prefHeight="657.0" prefWidth="1159.0">
+      <GridPane fx:id="gridPane" layoutX="91.0" layoutY="32.0" prefHeight="657.0" prefWidth="1159.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

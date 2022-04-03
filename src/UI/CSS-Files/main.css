@@ -17,3 +17,10 @@
 .font{
     -fx-font-family: "Coolvetica Rg";
 }
+.event-buttons{
+    -fx-background-color: #a2d5ef;
+    -fx-text-fill: white;
+    -fx-border-width: 4;
+    -fx-border-radius: 2;
+    -fx-border-color: #7397a9;
+}
