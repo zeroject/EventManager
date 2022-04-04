@@ -54,9 +54,6 @@ public class HomePageController implements Runnable, Initializable
     public void edit(){
         CREATESCENE.createScene("../view/EditView.fxml", "file:../CSS-Files/main.css", false, this);
     }
-    private void Update(){
-
-    }
 
     @Override public void run()
     {
@@ -72,13 +69,13 @@ public class HomePageController implements Runnable, Initializable
             ScaleTransition scaleTransitionIN = new ScaleTransition();
             scaleTransitionIN.setDuration(Duration.millis(100));
             scaleTransitionIN.setNode(temp);
-            scaleTransitionIN.setByY(0.05);
-            scaleTransitionIN.setByX(0.05);
+            scaleTransitionIN.setToY(0.98);
+            scaleTransitionIN.setToX(0.98);
             ScaleTransition scaleTransitionOUT = new ScaleTransition();
             scaleTransitionOUT.setDuration(Duration.millis(100));
             scaleTransitionOUT.setNode(temp);
-            scaleTransitionOUT.setByY(-0.05);
-            scaleTransitionOUT.setByX(-0.05);
+            scaleTransitionOUT.setToY(1);
+            scaleTransitionOUT.setToX(1);
             temp.setOnMouseEntered(e -> scaleTransitionIN.playFromStart());
             temp.setOnMouseExited(e -> scaleTransitionOUT.playFromStart());
             int numButton = i;
@@ -90,7 +87,7 @@ public class HomePageController implements Runnable, Initializable
             temp.setId("" + i);
             temp.setFont(font);
             System.out.println(temp);
-            temp.setOnAction(e -> System.out.println("id(" + temp.getId() + ") =  " + numButton));
+            temp.setOnAction(e -> eventWindoesCreater());
             gridPane.add(temp, j, i);
             i++;
             if(i == 3){
@@ -110,5 +107,11 @@ public class HomePageController implements Runnable, Initializable
             System.out.println("Works " + k);
             addButton();
         }
+    }
+
+    private void eventWindoesCreater(){
+        CREATESCENE.createScene("../view/EventInfo.fxml", "file:../CSS-Files/main.css", false, this);
+        Stage stage = (Stage) but.getScene().getWindow();
+        stage.close();
     }
 }
