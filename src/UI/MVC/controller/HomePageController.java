@@ -1,6 +1,8 @@
 package UI.MVC.controller;
 
+import BE.Event;
 import UI.MVC.model.EventModel;
+import UI.MVC.model.ParseModel;
 import UI.Utility.CREATESCENE;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
@@ -96,7 +98,7 @@ public class HomePageController implements Runnable, Initializable
             temp.setId("" + i);
             temp.setFont(font);
             System.out.println(temp);
-            temp.setOnAction(e -> eventWindoesCreater());
+            temp.setOnAction(e -> eventWindoesCreater(eventModel.getAllEvents().get(i)));
             gridPane.add(temp, j, i);
             i++;
             if(i == 3){
@@ -118,7 +120,8 @@ public class HomePageController implements Runnable, Initializable
         }
     }
 
-    private void eventWindoesCreater(){
+    private void eventWindoesCreater(Event event){
+        ParseModel.event = event;
         CREATESCENE.createScene("../view/EventInfo.fxml", "file:../CSS-Files/main.css", false, this);
         Stage stage = (Stage) but.getScene().getWindow();
         stage.close();

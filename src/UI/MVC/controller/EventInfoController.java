@@ -1,24 +1,33 @@
 package UI.MVC.controller;
 
 
+import BE.Event;
+import UI.MVC.model.EventModel;
+import UI.MVC.model.ParseModel;
 import UI.Utility.CREATESCENE;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class EventInfoController implements Runnable {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class EventInfoController implements Initializable {
     @FXML
-    private TableView tvGuestList;
+    private TableView<Event> tvGuestList;
     @FXML
-    private TableColumn tcGuestFName;
+    private TableColumn<Event, String> tcGuestFName;
     @FXML
-    private TableColumn tcGuestLName;
+    private TableColumn<Event, String> tcGuestLName;
     @FXML
-    private TableColumn tcGuestEmail;
+    private TableColumn<Event, String> tcGuestEmail;
     @FXML
-    private TableColumn tcGuestMNumber;
+    private TableColumn<Event, Integer> tcGuestMNumber;
     @FXML
-    private TableColumn tcNumberOfTicket;
+    private TableColumn<Event, Integer> tcNumberOfTicket;
     @FXML
     private TextArea taInfoBox;
     @FXML
@@ -27,16 +36,26 @@ public class EventInfoController implements Runnable {
     private Button btnSearch;
     @FXML
     private Button btnEditInfo;
-
     @FXML
     private Button but;
 
     private CREATESCENE CREATESCENE = new CREATESCENE();
+    private EventModel eventModel;
+    private Event event;
 
-    Thread t = new Thread();
-
-    public EventInfoController(){
-        t.start();
+    public EventInfoController() throws IOException {
+        event = ParseModel.event;
+        eventModel = new EventModel();
+        taInfoBox = new TextArea(event.getEventInfo());
+        txtSearchField = new TextField();
+        btnSearch = new Button();
+        btnEditInfo = new Button();
+        tvGuestList = new TableView<>();
+        tcGuestEmail = new TableColumn<>();
+        tcGuestFName = new TableColumn<>();
+        tcGuestLName = new TableColumn<>();
+        tcGuestMNumber = new TableColumn<>();
+        tcNumberOfTicket = new TableColumn<>();
     }
     @FXML
     public void users(){
@@ -52,13 +71,16 @@ public class EventInfoController implements Runnable {
     public void edit(){
         CREATESCENE.createScene("../view/EditView.fxml", "file:../CSS-Files/main.css", false, this);
     }
-    private void Update(){
 
-    }
-
-    @Override public void run()
-    {
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
+        try
+        {
+            tvGuestList.setItems(eventModel.getAllEvents());
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
 
