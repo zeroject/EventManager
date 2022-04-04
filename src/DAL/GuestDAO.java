@@ -94,7 +94,7 @@ public class GuestDAO {
      */
     public void deleteGuest(int guestID){
         try(Connection conn = connection.getConnection()){
-            String sql1 = "DELETE FROM Tickets WHERE ID =?;";
+            String sql1 = "DELETE FROM Tickets WHERE GuestID =?;";
             String sql2 = "DELETE FROM Guests WHERE ID =?;";
             PreparedStatement preparedStatement1 = conn.prepareStatement(sql1);
             preparedStatement1.setInt(1, guestID);

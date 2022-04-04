@@ -66,15 +66,11 @@ public class UserDAO {
      */
     public void deleteUser(int userID){
         try(Connection conn = connection.getConnection()){
-            String sql1 = "DELETE FROM Tickets WHERE ID =?;";
-            String sql2 = "DELETE FROM Guests WHERE ID =?;";
+            String sql1 = "DELETE FROM Users WHERE ID =?;";
             PreparedStatement preparedStatement1 = conn.prepareStatement(sql1);
             preparedStatement1.setInt(1, userID);
             preparedStatement1.execute();
-
-            PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
-            preparedStatement2.setInt(1, userID);
-            preparedStatement2.execute();
+            
         } catch (Exception throwables) {
             throwables.printStackTrace();
         }
