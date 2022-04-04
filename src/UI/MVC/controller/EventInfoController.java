@@ -46,7 +46,7 @@ public class EventInfoController implements Runnable {
     }
     @FXML
     public void create(){
-        CREATESCENE.createScene("../view/createView.fxml", "file:../CSS-Files/main.css", false, this);;
+        CREATESCENE.createScene("../view/createEventView.fxml", "file:../CSS-Files/main.css", false, this);;
     }
     @FXML
     public void edit(){

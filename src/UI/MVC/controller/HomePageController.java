@@ -52,11 +52,15 @@ public class HomePageController implements Runnable, Initializable
     }
     @FXML
     public void create(){
-        CREATESCENE.createScene("../view/createView.fxml", "file:../CSS-Files/main.css", false, this);;
+        CREATESCENE.createScene("../view/createEventView.fxml", "file:../CSS-Files/main.css", false, this);;
     }
     @FXML
     public void edit(){
         CREATESCENE.createScene("../view/EditView.fxml", "file:../CSS-Files/main.css", false, this);
+    }
+    @FXML
+    public void delete(){
+        CREATESCENE.createScene("../view/deleteEventsView.fxml", "file:../CSS-Files/main.css", false, this);
     }
 
     @Override public void run()
