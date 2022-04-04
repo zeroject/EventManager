@@ -28,21 +28,21 @@ public class DeleteEventsController implements Initializable
         eventModel = new EventModel();
     }
 
-    @FXML
-    public void deleteEvent(){
-        if(eventTable.getSelectionModel().getSelectedItem() != null){
-            eventModel.deleteEvent(eventTable.getSelectionModel().getSelectedItem().getId());
-        }
-    }
-
     @Override public void initialize(URL location, ResourceBundle resources)
     {
-        tcEventName.setCellValueFactory(new PropertyValueFactory<>("eventName"));
+        tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
         try
         {
             eventTable.setItems(eventModel.getAllEvents());
         } catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void deleteEvent(){
+        if(eventTable.getSelectionModel().getSelectedItem() != null){
+            eventModel.deleteEvent(eventTable.getSelectionModel().getSelectedItem().getId());
         }
     }
 }
