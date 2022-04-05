@@ -12,8 +12,8 @@ public class UserManager {
         userDAO = new UserDAO();
     }
 
-    public void createUser(String username, String password, boolean isAdmin) throws SQLException {
-        userDAO.createUser(username, password, isAdmin);
+    public void createUser(String username, String password, String email, boolean isAdmin) throws SQLException {
+        userDAO.createUser(username, password, email, isAdmin);
     }
 
     public void deleteUser(int userID){

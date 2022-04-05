@@ -13,7 +13,7 @@ public class TicketManager {
         ticketDAO = new TicketDAO();
     }
 
-    public void addUserToEvent(int userID, int eventID, int adultAmount, int childAmount){
-        ticketDAO.addUserToEvent(userID, eventID, adultAmount, childAmount);
+    public void addGuestToEvent(int userID, int eventID, int adultAmount, int childAmount){
+        ticketDAO.addGuestToEvent(userID, eventID, adultAmount, childAmount);
     }
 }
