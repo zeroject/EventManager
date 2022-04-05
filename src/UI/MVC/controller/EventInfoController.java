@@ -74,7 +74,6 @@ public class EventInfoController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tcEventName.setCellValueFactory(new PropertyValueFactory<>("EventName"));
         try
         {
             tvGuestList.setItems(eventModel.getAllEvents());

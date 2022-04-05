@@ -20,18 +20,20 @@ public class UserDAO {
      * Uses the SQL command INSERT INTO to create a new User in the database table users
      * @param username of the user
      * @param password of the user
+     * @param email of the user
      * @param isAdmin
      * @return
      * @throws SQLException
      */
-    public void createUser(String username, String password, boolean isAdmin) throws SQLException {
+    public void createUser(String username, String password, String email, boolean isAdmin) throws SQLException {
         try (Connection conn = connection.getConnection()){
-            String sql = "INSERT INTO Users(Username, Password, IsAdmin) values (?,?,?);";
+            String sql = "INSERT INTO Users(Username, Password, Email, IsAdmin) values (?,?,?,?);";
 
             try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
                 preparedStatement.setString(1, username);
                 preparedStatement.setString(2, password);
-                preparedStatement.setBoolean(3, isAdmin);
+                preparedStatement.setString(3, email);
+                preparedStatement.setBoolean(4, isAdmin);
                 preparedStatement.executeUpdate();
 
             } catch (SQLException throwables) {

@@ -14,8 +14,8 @@ public class UserModel {
         userManager = new UserManager();
     }
 
-    public void createUser(String username, String password, boolean isAdmin) throws SQLException {
-        userManager.createUser(username, password, isAdmin);
+    public void createUser(String username, String password, String email, boolean isAdmin) throws SQLException {
+        userManager.createUser(username, password, email, isAdmin);
     }
 
     public void deleteUser(int userID){
