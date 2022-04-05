@@ -98,7 +98,7 @@ public class HomePageController implements Runnable, Initializable
             temp.setId("" + i);
             temp.setFont(font);
             System.out.println(temp);
-            temp.setOnAction(e -> eventWindoesCreater(eventModel.getAllEvents().get(i)));
+            temp.setOnAction(e -> eventWindoesCreater(eventModel.getAllEvents().get(i-1)));
             gridPane.add(temp, j, i);
             i++;
             if(i == 3){
