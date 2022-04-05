@@ -64,14 +64,11 @@ public class EventInfoController implements Initializable {
         stage.close();
     }
     @FXML
-    public void create(){
-        CREATESCENE.createScene("../view/createEventView.fxml", "file:../CSS-Files/main.css", false, this);;
+    public void home(){
+        CREATESCENE.createScene("../view/HomePage.fxml", "file:../CSS-Files/main.css", false, this);
+        Stage stage = (Stage) but.getScene().getWindow();
+        stage.close();
     }
-    @FXML
-    public void edit(){
-        CREATESCENE.createScene("../view/EditView.fxml", "file:../CSS-Files/main.css", false, this);
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try

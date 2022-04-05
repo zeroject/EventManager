@@ -1,8 +1,7 @@
 package UI.MVC.controller;
 
-import BE.Guest;
 import BE.User;
-import UI.MVC.model.GuestModel;
+import UI.MVC.model.UserModel;
 import UI.Utility.CREATESCENE;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,20 +17,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ManageUsersController implements Initializable {
-    GuestModel guestModel = new GuestModel();
+    UserModel userModel = new UserModel();
 
     @FXML
-    private TableView<Guest> tvUsers;
+    private TableView<User> tvUsers;
     @FXML
-    private TableColumn<Guest, String> tcFirstName;
+    private TableColumn<User, String> tcFirstName;
     @FXML
-    private TableColumn<Guest, String> tcLastName;
+    private TableColumn<User, String> tcLastName;
     @FXML
-    private TableColumn<Guest, Integer> tcMNumber;
+    private TableColumn<User, String> tcEmail;
     @FXML
-    private TableColumn<Guest, String> tcEmail;
-    @FXML
-    private TableColumn<Guest, Integer> tcID;
+    private TableColumn<User, Integer> tcID;
 
     private CREATESCENE CREATESCENE = new CREATESCENE();
 
@@ -42,7 +39,6 @@ public class ManageUsersController implements Initializable {
         tvUsers = new TableView<>();
         tcFirstName = new TableColumn<>();
         tcLastName = new TableColumn<>();
-        tcMNumber = new TableColumn<>();
         tcEmail = new TableColumn<>();
         tcID = new TableColumn<>();
     }
@@ -51,14 +47,13 @@ public class ManageUsersController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         tvUsers.setPlaceholder(new Label("No users found in database"));
 
-        tcFirstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        tcLastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-        tcMNumber.setCellValueFactory(new PropertyValueFactory<>("MobileNumber"));
+        tcFirstName.setCellValueFactory(new PropertyValueFactory<>("Username"));
+        tcLastName.setCellValueFactory(new PropertyValueFactory<>("Password"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
         tcID.setCellValueFactory(new PropertyValueFactory<>("Id"));
         try
         {
-            tvUsers.setItems(guestModel.getAllGuestsInEvent(1));
+            tvUsers.setItems(userModel.getAllUsers());
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -75,7 +70,7 @@ public class ManageUsersController implements Initializable {
         CREATESCENE.createScene("../view/createUserView.fxml", "file:../CSS-Files/main.css", false, this);
     }
     public void delete(){
-        guestModel.deleteGuest(tvUsers.getSelectionModel().getSelectedItem().getId());
+        userModel.deleteUser(tvUsers.getSelectionModel().getSelectedItem().getId());
     }
 
     public void edit(){

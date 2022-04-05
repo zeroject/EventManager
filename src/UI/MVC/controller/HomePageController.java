@@ -15,16 +15,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HomePageController implements Runnable, Initializable
+public class HomePageController implements Initializable
 {
 
     @FXML
@@ -39,12 +36,9 @@ public class HomePageController implements Runnable, Initializable
     private int i = 0;
     private int j = 0;
 
-    Thread t = new Thread();
-
     public HomePageController() throws IOException
     {
         gridPane = new GridPane();
-        t.start();
     }
     @FXML
     public void users(){
@@ -57,17 +51,8 @@ public class HomePageController implements Runnable, Initializable
         CREATESCENE.createScene("../view/createEventView.fxml", "file:../CSS-Files/main.css", false, this);;
     }
     @FXML
-    public void edit(){
-        CREATESCENE.createScene("../view/EditView.fxml", "file:../CSS-Files/main.css", false, this);
-    }
-    @FXML
     public void delete(){
         CREATESCENE.createScene("../view/deleteEventsView.fxml", "file:../CSS-Files/main.css", false, this);
-    }
-
-    @Override public void run()
-    {
-
     }
 
     @FXML

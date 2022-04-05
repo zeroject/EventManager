@@ -8,25 +8,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.CreateUserController">
    <children>
       <TextField fx:id="userFirstNameField" layoutX="68.0" layoutY="97.0" prefHeight="25.0" prefWidth="204.0" />
       <TextField fx:id="userLastNameField" layoutX="68.0" layoutY="153.0" prefHeight="25.0" prefWidth="204.0" />
-      <TextField fx:id="userMobilNumberField" layoutX="68.0" layoutY="203.0" prefHeight="25.0" prefWidth="204.0" />
-      <TextField fx:id="userEmailField" layoutX="68.0" layoutY="255.0" prefHeight="25.0" prefWidth="204.0" />
-      <CheckBox fx:id="isAdminCheck" layoutX="69.0" layoutY="298.0" mnemonicParsing="false" text="is Admin" />
-      <CheckBox fx:id="isEventCordinatorCheck" layoutX="150.0" layoutY="298.0" mnemonicParsing="false" text="is EventCordinator" />
-      <Label layoutX="68.0" layoutY="80.0" text="First Name" />
-      <Label layoutX="68.0" layoutY="136.0" text="Last Name" />
-      <Label layoutX="69.0" layoutY="186.0" text="Mobil Nummer" />
-      <Label layoutX="68.0" layoutY="238.0" text="Email" />
+      <TextField fx:id="userEmailField" layoutX="68.0" layoutY="206.0" prefHeight="25.0" prefWidth="204.0" />
+      <CheckBox fx:id="isAdminCheck" layoutX="69.0" layoutY="246.0" mnemonicParsing="false" text="is Admin" />
+      <Label layoutX="68.0" layoutY="80.0" text="Username" />
+      <Label layoutX="68.0" layoutY="136.0" text="Password" />
+      <Label layoutX="68.0" layoutY="189.0" text="Email" />
       <ImageView fitHeight="230.0" fitWidth="230.0" layoutX="320.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Pics/PeopleDancing.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="320.0" layoutY="80.0" prefHeight="240.0" prefWidth="230.0" style="-fx-border-width: 5; -fx-border-color: #54626C; -fx-border-radius: 50;" />
-      <Button layoutX="68.0" layoutY="335.0" mnemonicParsing="false" onAction="#createUser" text="Create User" />
+      <Button layoutX="68.0" layoutY="282.0" mnemonicParsing="false" onAction="#createUser" text="Create User" />
    </children>
 </AnchorPane>

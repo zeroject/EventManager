@@ -20,7 +20,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="78.0" mnemonicParsing="false" onAction="#home" styleClass="sidebar-buttons">
+            <Button layoutX="9.0" layoutY="72.0" mnemonicParsing="false" onAction="#home" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -29,16 +29,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="137.0" mnemonicParsing="false" styleClass="sidebar-buttons">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../icon/settings.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="9.0" layoutY="218.0" mnemonicParsing="false" onAction="#create" styleClass="sidebar-buttons">
+            <Button layoutX="9.0" layoutY="149.0" mnemonicParsing="false" onAction="#create" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -47,8 +38,8 @@
                   </ImageView>
                </graphic>
             </Button>
-            <AnchorPane layoutY="194.0" prefHeight="5.0" prefWidth="64.0" styleClass="sidebar-lines" />
-            <Button layoutX="9.0" layoutY="272.0" mnemonicParsing="false" onAction="#delete" styleClass="sidebar-buttons">
+            <AnchorPane layoutY="125.0" prefHeight="5.0" prefWidth="64.0" styleClass="sidebar-lines" />
+            <Button layoutX="9.0" layoutY="203.0" mnemonicParsing="false" onAction="#delete" styleClass="sidebar-buttons">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,9 +48,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="9.0" layoutY="322.0" mnemonicParsing="false" onAction="#edit" styleClass="sidebar-buttons">
+            <Button layoutX="9.0" layoutY="253.0" mnemonicParsing="false" onAction="#edit" styleClass="sidebar-buttons">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../icon/edit.png" />
                      </image>
@@ -75,7 +66,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <AnchorPane layoutY="375.0" prefHeight="5.0" prefWidth="64.0" styleClass="sidebar-lines" />
+            <AnchorPane layoutY="306.0" prefHeight="5.0" prefWidth="64.0" styleClass="sidebar-lines" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="64.0" prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-lines" />
