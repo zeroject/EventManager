@@ -11,7 +11,7 @@ public class TicketModel {
         ticketManager = new TicketManager();
     }
 
-    public void addUserToEvent(int userID, int eventID, int adultAmount, int childAmount){
-        ticketManager.addUserToEvent(userID, eventID, adultAmount, childAmount);
+    public void addGuestToEvent(int userID, int eventID, int adultAmount, int childAmount){
+        ticketManager.addGuestToEvent(userID, eventID, adultAmount, childAmount);
     }
 }

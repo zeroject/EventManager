@@ -12,7 +12,7 @@ public class TicketDAO {
         connection = new DatabaseConnector();
     }
 
-    public void addUserToEvent(int userID, int eventID, int adultAmount, int childAmount)
+    public void addGuestToEvent(int userID, int eventID, int adultAmount, int childAmount)
     {
         String sql = "INSERT INTO Tickets(UserID, EventID, AdultAmount, ChildAmount) VALUES (?, ?, ?, ?)";
         try (Connection conn = connection.getConnection()) {
