@@ -18,8 +18,8 @@ public class UserManager {
         return userDAO.getAllUsers();
     }
 
-    public void createUser(String username, String password, String email, boolean isAdmin) throws SQLException {
-        userDAO.createUser(username, password, email, isAdmin);
+    public void createUser(String username, String password, String email) throws SQLException {
+        userDAO.createUser(username, password, email);
     }
 
     public void updateUser(User user){

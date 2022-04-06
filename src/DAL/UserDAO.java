@@ -30,9 +30,8 @@ public class UserDAO {
                 String username = rs.getString("Username");
                 String password = rs.getString("Password");
                 String email = rs.getString("Email");
-                boolean isAdmin = rs.getBoolean("IsAdmin");
 
-                User user = new User(id, username, password, email, isAdmin);
+                User user = new User(id, username, password, email);
                 users.add(user);
             }
         }catch (SQLException throwable){
@@ -46,19 +45,17 @@ public class UserDAO {
      * @param username of the user
      * @param password of the user
      * @param email of the user
-     * @param isAdmin
      * @return
      * @throws SQLException
      */
-    public void createUser(String username, String password, String email, boolean isAdmin) throws SQLException {
+    public void createUser(String username, String password, String email) throws SQLException {
         try (Connection conn = connection.getConnection()){
-            String sql = "INSERT INTO Users(Username, Password, Email, IsAdmin) values (?,?,?,?);";
+            String sql = "INSERT INTO Users(Username, Password, Email) values (?,?,?,?);";
 
             try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
                 preparedStatement.setString(1, username);
                 preparedStatement.setString(2, password);
                 preparedStatement.setString(3, email);
-                preparedStatement.setBoolean(4, isAdmin);
                 preparedStatement.executeUpdate();
 
             } catch (SQLException throwables) {
@@ -73,12 +70,11 @@ public class UserDAO {
      */
     public void updateUser(User user){
         try(Connection conn = connection.getConnection()){
-            String sql = "UPDATE Users SET Username=?, Password=?, IsAdmin=? WHERE ID=?;";
+            String sql = "UPDATE Users SET Username=?, Password=? WHERE ID=?;";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setBoolean(3, user.getIsAdmin());
-            preparedStatement.setInt(4, user.getId());
+            preparedStatement.setInt(3, user.getId());
             if(preparedStatement.executeUpdate() != 1){
                 throw new Exception("Could not update User");
             }

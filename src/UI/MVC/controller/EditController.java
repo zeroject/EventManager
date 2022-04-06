@@ -36,7 +36,7 @@ public class EditController implements Initializable
 
     @FXML
     private void updateUser(){
-        User tempUser = new User(user.getId(), tfUsername.getText(), tfPassword.getText(), tfEmail.getText(), true);
+        User tempUser = new User(user.getId(), tfUsername.getText(), tfPassword.getText(), tfEmail.getText());
         userModel.updateUser(tempUser);
     }
 
