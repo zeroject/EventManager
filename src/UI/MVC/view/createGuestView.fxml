@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="520.0" prefWidth="482.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.CreateGuestController">
+<AnchorPane prefHeight="520.0" prefWidth="482.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.CreateGuestController">
    <children>
       <TextField fx:id="tfFornavn" layoutX="63.0" layoutY="95.0" prefHeight="25.0" prefWidth="264.0" promptText="Navn" />
       <TextField fx:id="tfEfternavn" layoutX="63.0" layoutY="179.0" prefHeight="25.0" prefWidth="264.0" promptText="Efternavn" />
@@ -18,8 +18,10 @@
       <Label layoutX="63.0" layoutY="236.0" text="Email" />
       <Label layoutX="63.0" layoutY="314.0" text="Mobil Nummer" />
       <Label layoutX="63.0" layoutY="390.0" text="Voksne" />
-      <TextField fx:id="tfChild" layoutX="167.0" layoutY="417.0" prefHeight="25.0" prefWidth="28.0" promptText="0" />
-      <Label layoutX="167.0" layoutY="390.0" text="Børn" />
+      <TextField fx:id="tfChild" layoutX="117.0" layoutY="417.0" prefHeight="25.0" prefWidth="28.0" promptText="0" />
+      <Label layoutX="117.0" layoutY="390.0" text="Børn" />
       <Button layoutX="62.0" layoutY="461.0" mnemonicParsing="false" onAction="#createGuest" text="Done" />
+      <ComboBox fx:id="eventBox" layoutX="176.0" layoutY="417.0" prefWidth="150.0" />
+      <Label layoutX="176.0" layoutY="390.0" text="Event" />
    </children>
 </AnchorPane>
