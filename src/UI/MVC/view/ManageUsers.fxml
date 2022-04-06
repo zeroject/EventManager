@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.ManageUsersController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.ManageUsersController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="64.0" styleClass="sidebar-color">
          <children>
@@ -72,14 +72,10 @@
       <AnchorPane layoutX="64.0" prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-lines" />
       <TableView fx:id="tvUsers" layoutX="139.0" layoutY="62.0" prefHeight="616.0" prefWidth="1088.0">
         <columns>
-          <TableColumn fx:id="tcFirstName" prefWidth="168.0" text="FirstName" />
-          <TableColumn fx:id="tcLastName" prefWidth="172.0" text="LastName" />
-            <TableColumn fx:id="tcMNumber" prefWidth="185.0" text="Mobile Number" />
-            <TableColumn fx:id="tcEmail" prefWidth="265.0" text="EmailAddress" />
-            <TableColumn fx:id="tcIsAdmin" prefWidth="60.0" text="IsAdmin" />
-            <TableColumn fx:id="tcIsManager" prefWidth="77.0" text="IsManager" />
-            <TableColumn fx:id="tcID" prefWidth="45.0" text="ID" />
-            <TableColumn prefWidth="115.0" />
+          <TableColumn fx:id="tcFirstName" prefWidth="382.0" text="Username" />
+          <TableColumn fx:id="tcLastName" prefWidth="215.0" text="Password" />
+            <TableColumn fx:id="tcEmail" prefWidth="423.0" text="EmailAddress" />
+            <TableColumn fx:id="tcID" prefWidth="67.0" text="ID" />
         </columns>
       </TableView>
    </children>
