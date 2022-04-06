@@ -5,6 +5,7 @@ import UI.MVC.model.GuestTicketModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 import java.awt.*;
 import java.io.IOException;
@@ -14,26 +15,21 @@ import java.util.ResourceBundle;
 
 public class CreateGuestController implements Initializable
 {
+    public TextField tfFornavn;
+    public TextField tfEfternavn;
+    public TextField tfEmail;
+    public TextField tfMobilNummer;
+    public TextField tfVoksen;
+    public TextField tfChild;
+    public ComboBox<Event> eventBox;
     private EventModel eventModel;
 
-    @FXML private ComboBox<Event> eventBox;
-    @FXML private TextField tfFornavn;
-    @FXML private TextField tfEfternavn;
-    @FXML private TextField tfEmail;
-    @FXML private TextField tfMobilNummer;
-    @FXML private TextField tfVoksen;
-    @FXML private TextField tfChild;
+    
 
     private GuestTicketModel guestTicketModel;
 
     public CreateGuestController() throws IOException
     {
-        tfFornavn = new TextField();
-        tfEfternavn = new TextField();
-        tfEmail = new TextField();
-        tfMobilNummer = new TextField();
-        tfVoksen = new TextField();
-        tfChild = new TextField();
         guestTicketModel = new GuestTicketModel();
         eventModel = new EventModel();
     }

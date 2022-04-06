@@ -65,7 +65,6 @@ public class EventInfoController implements Initializable {
     public EventInfoController() throws IOException {
         event = ParseModel.event;
         guest = ParseModel.guestTicket;
-        System.out.println(event);
         eventModel = new EventModel();
         taInfoBox = new TextArea(event.getEventInfo());
         txtSearchField = new TextField();
@@ -77,18 +76,7 @@ public class EventInfoController implements Initializable {
         tcGuestLName = new TableColumn<>();
         tcGuestMNumber = new TableColumn<>();
     }
-    @FXML
-    public void users(){
-        CREATESCENE.createScene("../view/ManageUsers.fxml", "file:../CSS-Files/main.css", false, this);
-        Stage stage = (Stage) but.getScene().getWindow();
-        stage.close();
-    }
-    @FXML
-    public void home(){
-        CREATESCENE.createScene("../view/HomePage.fxml", "file:../CSS-Files/main.css", false, this);
-        Stage stage = (Stage) but.getScene().getWindow();
-        stage.close();
-    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -115,6 +103,23 @@ public class EventInfoController implements Initializable {
         tfEnd.setText(event.getEndTime());
 
 
+    }
+
+    @FXML
+    public void users(){
+        CREATESCENE.createScene("../view/ManageUsers.fxml", "file:../CSS-Files/main.css", false, this);
+        Stage stage = (Stage) but.getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    public void home(){
+        CREATESCENE.createScene("../view/HomePage.fxml", "file:../CSS-Files/main.css", false, this);
+        Stage stage = (Stage) but.getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    public void createGuest(){
+        CREATESCENE.createScene("../view/createGuestView.fxml", "file:../CSS-Files/main.css", false, this);
     }
 }
 

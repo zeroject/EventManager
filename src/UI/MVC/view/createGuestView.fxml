@@ -21,7 +21,7 @@
       <TextField fx:id="tfChild" layoutX="117.0" layoutY="417.0" prefHeight="25.0" prefWidth="28.0" promptText="0" />
       <Label layoutX="117.0" layoutY="390.0" text="Børn" />
       <Button layoutX="62.0" layoutY="461.0" mnemonicParsing="false" onAction="#createGuest" text="Done" />
-      <ComboBox fx:id="eventBox" layoutX="176.0" layoutY="417.0" prefWidth="150.0" />
+      <ComboBox fx:id="eventBox" layoutX="176.0" layoutY="417.0" prefWidth="150.0" promptText="Events" />
       <Label layoutX="176.0" layoutY="390.0" text="Event" />
    </children>
 </AnchorPane>

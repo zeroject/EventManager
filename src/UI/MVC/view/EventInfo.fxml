@@ -88,6 +88,6 @@
       <Label layoutX="156.0" layoutY="404.0" text="Location" />
       <Label layoutX="325.0" layoutY="404.0" text="Date" />
       <Label layoutX="491.0" layoutY="370.0" text="Start and End time" />
-      <Button fx:id="btnCreateGuest" layoutX="1160.0" layoutY="677.0" mnemonicParsing="false" text="Create Guest" />
+      <Button fx:id="btnCreateGuest" layoutX="1160.0" layoutY="677.0" mnemonicParsing="false" onAction="#createGuest" text="Create Guest" />
    </children>
 </AnchorPane>
