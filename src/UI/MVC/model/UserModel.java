@@ -1,10 +1,7 @@
 package UI.MVC.model;
 
-import BE.Guest;
 import BE.User;
 import BLL.UserManager;
-import DAL.UserDAO;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 
 import java.io.IOException;

@@ -84,8 +84,8 @@ public class EventDAO {
 
     public void deleteEvent(int eventID){
         try(Connection conn = connection.getConnection()){
-            String sql1 = "DELETE FROM Tickets WHERE EventID =?;";
-            String sql2 = "DELETE FROM Events WHERE ID =?;";
+            String sql1 = "DELETE FROM GuestTicket WHERE EventID=?;";
+            String sql2 = "DELETE FROM Events WHERE ID=?;";
             PreparedStatement preparedStatement1 = conn.prepareStatement(sql1);
             preparedStatement1.setInt(1, eventID);
             preparedStatement1.execute();

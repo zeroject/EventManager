@@ -1,19 +1,23 @@
 package BE;
 
-public class Guest {
+public class GuestTicket {
 
     int id;
     String fName;
     String lName;
     int mNumber;
     String email;
+    private int adultAmount;
+    private int childAmount;
 
-    public Guest(int id, String fName, String lName, int mNumber, String email){
+    public GuestTicket(int id, String fName, String lName, int mNumber, String email, int adultAmount, int childAmount){
         this.id = id;
         this.fName = fName;
         this.lName = lName;
         this.mNumber = mNumber;
         this.email = email;
+        this.adultAmount = adultAmount;
+        this.childAmount = childAmount;
     }
 
     public int getId() {
@@ -50,6 +54,22 @@ public class Guest {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getAdultAmount() {
+        return adultAmount;
+    }
+
+    public void setAdultAmount(int adultAmount) {
+        this.adultAmount = adultAmount;
+    }
+
+    public int getChildAmount() {
+        return childAmount;
+    }
+
+    public void setChildAmount(int childAmount) {
+        this.childAmount = childAmount;
     }
 
     @Override

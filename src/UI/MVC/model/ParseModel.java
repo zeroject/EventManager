@@ -1,11 +1,11 @@
 package UI.MVC.model;
 
 import BE.Event;
-import BE.Guest;
+import BE.GuestTicket;
 import BE.User;
 
 public class ParseModel {
     public static Event event;
-    public static Guest guest;
+    public static GuestTicket guestTicket;
     public static User user;
 }
