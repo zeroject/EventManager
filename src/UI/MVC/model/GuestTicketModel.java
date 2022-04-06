@@ -23,8 +23,8 @@ public class GuestTicketModel {
         return guestTicketList;
     }
 
-    public void createGuest(String firstName, String lastName, String mNumber, String email, int adultNum, int childNum) throws SQLException {
-        guestManager.createGuest(firstName, lastName, mNumber, email, adultNum, childNum);
+    public void createGuest(int eventID, String firstName, String lastName, String mNumber, String email, int adultNum, int childNum) throws SQLException {
+        guestManager.createGuest(eventID, firstName, lastName, mNumber, email, adultNum, childNum);
     }
 
     public void deleteGuest(int guestID){

@@ -30,6 +30,6 @@ public class CreateGuestController
     @FXML
     public void createGuest() throws SQLException
     {
-        guestTicketModel.createGuest(tfFornavn.getText(), tfEfternavn.getText(), tfMobilNummer.getText(), tfEmail.getText(), Integer.parseInt(tfVoksen.getText()), Integer.parseInt(tfChild.getText()));
+        //guestTicketModel.createGuest(tfFornavn.getText(), tfEfternavn.getText(), tfMobilNummer.getText(), tfEmail.getText(), Integer.parseInt(tfVoksen.getText()), Integer.parseInt(tfChild.getText()));
     }
 }

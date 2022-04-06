@@ -52,17 +52,18 @@ public class GuestTicketDAO {
      * @return
      * @throws SQLException
      */
-    public void createGuest(String firstName, String lastName, String mobileNumber, String email, int adultNum, int childNum) throws SQLException {
+    public void createGuest(int eventID, String firstName, String lastName, String mobileNumber, String email, int adultNum, int childNum) throws SQLException {
         try (Connection conn = connection.getConnection()){
-            String sql = "INSERT INTO Guests(FName, LName, MNumber, EmailAddress, AdultAmount, ChildAmount) values (?,?,?,?,?,?);";
+            String sql = "INSERT INTO Guests(EventID, FName, LName, MNumber, EmailAddress, AdultAmount, ChildAmount) values (?,?,?,?,?,?,?);";
 
             try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
-                preparedStatement.setString(1, firstName);
-                preparedStatement.setString(2, lastName);
-                preparedStatement.setString(3, mobileNumber);
-                preparedStatement.setString(4, email);
-                preparedStatement.setInt(5, adultNum);
-                preparedStatement.setInt(6, childNum);
+                preparedStatement.setInt(1, eventID);
+                preparedStatement.setString(2, firstName);
+                preparedStatement.setString(3, lastName);
+                preparedStatement.setString(4, mobileNumber);
+                preparedStatement.setString(5, email);
+                preparedStatement.setInt(6, adultNum);
+                preparedStatement.setInt(7, childNum);
                 preparedStatement.executeUpdate();
 
             } catch (SQLException throwables) {
@@ -79,9 +80,9 @@ public class GuestTicketDAO {
         try(Connection conn = connection.getConnection()){
             String sql = "UPDATE Guests SET FName=?, LName=?, MNumber=?, EmailAddress=?, AdultAmount=?, ChildAmount=? WHERE ID=?;";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, guestTicket.getfName());
-            preparedStatement.setString(2, guestTicket.getlName());
-            preparedStatement.setString(3, guestTicket.getmNumber());
+            preparedStatement.setString(1, guestTicket.getFName());
+            preparedStatement.setString(2, guestTicket.getLName());
+            preparedStatement.setString(3, guestTicket.getMNumber());
             preparedStatement.setString(4, guestTicket.getEmail());
             preparedStatement.setInt(5, guestTicket.getAdultAmount());
             preparedStatement.setInt(6, guestTicket.getChildAmount());
