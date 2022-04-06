@@ -1,6 +1,7 @@
 package UI.MVC.controller;
 
 import BE.User;
+import UI.MVC.model.ParseModel;
 import UI.MVC.model.UserModel;
 import UI.Utility.CREATESCENE;
 import javafx.fxml.FXML;
@@ -74,6 +75,7 @@ public class ManageUsersController implements Initializable {
     }
 
     public void edit(){
+        ParseModel.user = tvUsers.getSelectionModel().getSelectedItem();
         CREATESCENE.createScene("../view/EditView.fxml", "file:../CSS-Files/main.css", false, this);
     }
 
