@@ -80,9 +80,9 @@ public class GuestTicketDAO {
         try(Connection conn = connection.getConnection()){
             String sql = "UPDATE Guests SET FName=?, LName=?, MNumber=?, EmailAddress=?, AdultAmount=?, ChildAmount=? WHERE ID=?;";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, guestTicket.getfName());
-            preparedStatement.setString(2, guestTicket.getlName());
-            preparedStatement.setString(3, guestTicket.getmNumber());
+            preparedStatement.setString(1, guestTicket.getFName());
+            preparedStatement.setString(2, guestTicket.getLName());
+            preparedStatement.setString(3, guestTicket.getMNumber());
             preparedStatement.setString(4, guestTicket.getEmail());
             preparedStatement.setInt(5, guestTicket.getAdultAmount());
             preparedStatement.setInt(6, guestTicket.getChildAmount());

@@ -19,10 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EventInfoController implements Initializable {
-    @FXML
-    private TableColumn<GuestTicket, String> tcAdultAmount;
-    @FXML
-    private TableColumn<GuestTicket, String> tcChildrenAmount;
+
     @FXML
     private Button btnCreateGuest;
     @FXML
@@ -43,6 +40,10 @@ public class EventInfoController implements Initializable {
     private TableColumn<GuestTicket, String> tcGuestEmail;
     @FXML
     private TableColumn<GuestTicket, String> tcGuestMNumber;
+    @FXML
+    private TableColumn<GuestTicket, Integer> tcAdultAmount;
+    @FXML
+    private TableColumn<GuestTicket, Integer> tcChildrenAmount;
     @FXML
     private TextArea taInfoBox;
     @FXML
@@ -93,12 +94,12 @@ public class EventInfoController implements Initializable {
 
         tvGuestList.setPlaceholder(new Label("There are no guests added to this event"));
 
-        tcGuestFName.setCellValueFactory(new PropertyValueFactory<>("FName"));
-        tcGuestLName.setCellValueFactory(new PropertyValueFactory<>("LName"));
-        tcGuestEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tcGuestFName.setCellValueFactory(new PropertyValueFactory<>("fName"));
+        tcGuestLName.setCellValueFactory(new PropertyValueFactory<>("lName"));
+        tcGuestEmail.setCellValueFactory(new PropertyValueFactory<>("Email"));
         tcGuestMNumber.setCellValueFactory(new PropertyValueFactory<>("MNumber"));
-        tcAdultAmount.setCellValueFactory(new PropertyValueFactory<>("adultAmount"));
-        tcChildrenAmount.setCellValueFactory(new PropertyValueFactory<>("childAmount"));
+        tcAdultAmount.setCellValueFactory(new PropertyValueFactory<>("AdultAmount"));
+        tcChildrenAmount.setCellValueFactory(new PropertyValueFactory<>("ChildAmount"));
 
         try
         {

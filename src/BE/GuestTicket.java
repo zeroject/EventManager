@@ -24,27 +24,27 @@ public class GuestTicket {
         return id;
     }
 
-    public String getfName() {
+    public String getFName() {
         return fName;
     }
 
-    public void setfName(String fName) {
+    public void setFName(String fName) {
         this.fName = fName;
     }
 
-    public String getlName() {
+    public String getLName() {
         return lName;
     }
 
-    public void setlName(String lName) {
+    public void setLName(String lName) {
         this.lName = lName;
     }
 
-    public String getmNumber() {
+    public String getMNumber() {
         return mNumber;
     }
 
-    public void setmNumber(String mNumber) {
+    public void setMNumber(String mNumber) {
         this.mNumber = mNumber;
     }
 

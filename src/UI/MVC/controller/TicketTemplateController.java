@@ -14,9 +14,10 @@ public class TicketTemplateController {
     public TicketTemplateController(){
 
     }
-
+    /*
     public Image getSnapshot(){
 
         return WritableImage snapshot = ticketID.getScene().snapshot(null);
     }
+     */
 }
