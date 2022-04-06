@@ -17,6 +17,16 @@ import java.util.ResourceBundle;
 
 public class EventInfoController implements Initializable {
     @FXML
+    private Button btnCreateGuest;
+    @FXML
+    private TextField tfEnd;
+    @FXML
+    private TextField tfStart;
+    @FXML
+    private TextField tfDate;
+    @FXML
+    private TextField tfLocation;
+    @FXML
     private TableView<Event> tvGuestList;
     @FXML
     private TableColumn<Event, String> tcGuestFName;
@@ -45,6 +55,7 @@ public class EventInfoController implements Initializable {
 
     public EventInfoController() throws IOException {
         event = ParseModel.event;
+        System.out.println(event);
         eventModel = new EventModel();
         taInfoBox = new TextArea(event.getEventInfo());
         txtSearchField = new TextField();
@@ -77,6 +88,13 @@ public class EventInfoController implements Initializable {
         } catch (Exception e){
             e.printStackTrace();
         }
+
+        taInfoBox.setText(event.getEventInfo());
+        tfDate.setText(event.getEventDate());
+        tfLocation.setText(event.getEventLocation());
+        tfStart.setText(event.getStartTime());
+        tfEnd.setText(event.getEndTime());
+
     }
 }
 

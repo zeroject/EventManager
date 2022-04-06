@@ -35,6 +35,7 @@ public class HomePageController implements Initializable
     private EventModel eventModel = new EventModel();
     private int i = 0;
     private int j = 0;
+    private int btnnumber = 0;
 
     public HomePageController() throws IOException
     {
@@ -83,7 +84,7 @@ public class HomePageController implements Initializable
             temp.setId("" + i);
             temp.setFont(font);
             System.out.println(temp);
-            temp.setOnAction(e -> eventWindoesCreater(eventModel.getAllEvents().get(i-1)));
+            temp.setOnAction(e -> eventWindoesCreater(eventModel.getAllEvents().get(btnnumber)));
             gridPane.add(temp, j, i);
             i++;
             if(i == 3){
@@ -109,6 +110,7 @@ public class HomePageController implements Initializable
         ParseModel.event = event;
         CREATESCENE.createScene("../view/EventInfo.fxml", "file:../CSS-Files/main.css", false, this);
         Stage stage = (Stage) but.getScene().getWindow();
+        btnnumber++;
         stage.close();
     }
 }
