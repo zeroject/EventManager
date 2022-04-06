@@ -73,8 +73,8 @@
           <TableColumn fx:id="tcGuestLName" prefWidth="116.50262451171875" text="Last Name" />
             <TableColumn fx:id="tcGuestEmail" minWidth="0.0" prefWidth="96.93072509765625" text="Email Address" />
             <TableColumn fx:id="tcGuestMNumber" prefWidth="121.85888671875" text="Mobile Number" />
-            <TableColumn fx:id="tcNumberOfTicket" prefWidth="69.0" text="Adults" />
-            <TableColumn prefWidth="64.0" text="Children" />
+            <TableColumn fx:id="tcAdultAmount" prefWidth="69.0" text="Adults" />
+            <TableColumn fx:id="tcChildrenAmount" prefWidth="64.0" text="Children" />
         </columns>
       </TableView>
       <TextArea fx:id="taInfoBox" layoutX="80.0" layoutY="473.0" prefHeight="198.0" prefWidth="571.0" promptText="Info Box" />

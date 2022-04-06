@@ -2,7 +2,9 @@ package UI.MVC.controller;
 
 
 import BE.Event;
+import BE.GuestTicket;
 import UI.MVC.model.EventModel;
+import UI.MVC.model.GuestTicketModel;
 import UI.MVC.model.ParseModel;
 import UI.Utility.CREATESCENE;
 import javafx.fxml.FXML;
@@ -11,11 +13,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.security.auth.callback.Callback;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EventInfoController implements Initializable {
+    @FXML
+    private TableColumn<GuestTicket, String> tcAdultAmount;
+    @FXML
+    private TableColumn<GuestTicket, String> tcChildrenAmount;
     @FXML
     private Button btnCreateGuest;
     @FXML
@@ -27,17 +34,15 @@ public class EventInfoController implements Initializable {
     @FXML
     private TextField tfLocation;
     @FXML
-    private TableView<Event> tvGuestList;
+    private TableView<GuestTicket> tvGuestList;
     @FXML
-    private TableColumn<Event, String> tcGuestFName;
+    private TableColumn<GuestTicket, String> tcGuestFName;
     @FXML
-    private TableColumn<Event, String> tcGuestLName;
+    private TableColumn<GuestTicket, String> tcGuestLName;
     @FXML
-    private TableColumn<Event, String> tcGuestEmail;
+    private TableColumn<GuestTicket, String> tcGuestEmail;
     @FXML
-    private TableColumn<Event, Integer> tcGuestMNumber;
-    @FXML
-    private TableColumn<Event, Integer> tcNumberOfTicket;
+    private TableColumn<GuestTicket, String> tcGuestMNumber;
     @FXML
     private TextArea taInfoBox;
     @FXML
@@ -49,12 +54,16 @@ public class EventInfoController implements Initializable {
     @FXML
     private Button but;
 
+    GuestTicketModel guestTicketModel = new GuestTicketModel();
+
     private CREATESCENE CREATESCENE = new CREATESCENE();
     private EventModel eventModel;
     private Event event;
+    private GuestTicket guest;
 
     public EventInfoController() throws IOException {
         event = ParseModel.event;
+        guest = ParseModel.guestTicket;
         System.out.println(event);
         eventModel = new EventModel();
         taInfoBox = new TextArea(event.getEventInfo());
@@ -66,7 +75,6 @@ public class EventInfoController implements Initializable {
         tcGuestFName = new TableColumn<>();
         tcGuestLName = new TableColumn<>();
         tcGuestMNumber = new TableColumn<>();
-        tcNumberOfTicket = new TableColumn<>();
     }
     @FXML
     public void users(){
@@ -82,9 +90,19 @@ public class EventInfoController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        tvGuestList.setPlaceholder(new Label("There are no guests added to this event"));
+
+        tcGuestFName.setCellValueFactory(new PropertyValueFactory<>("FName"));
+        tcGuestLName.setCellValueFactory(new PropertyValueFactory<>("LName"));
+        tcGuestEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tcGuestMNumber.setCellValueFactory(new PropertyValueFactory<>("MNumber"));
+        tcAdultAmount.setCellValueFactory(new PropertyValueFactory<>("adultAmount"));
+        tcChildrenAmount.setCellValueFactory(new PropertyValueFactory<>("childAmount"));
+
         try
         {
-            tvGuestList.setItems(eventModel.getAllEvents());
+            tvGuestList.setItems(guestTicketModel.getAllGuestsInEvent(1));
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -94,6 +112,7 @@ public class EventInfoController implements Initializable {
         tfLocation.setText(event.getEventLocation());
         tfStart.setText(event.getStartTime());
         tfEnd.setText(event.getEndTime());
+
 
     }
 }
