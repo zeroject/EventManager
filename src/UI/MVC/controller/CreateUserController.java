@@ -27,7 +27,7 @@ public class CreateUserController {
             String firstName = userFirstNameField.getText();
             String lastName = userLastNameField.getText();
             String email = userEmailField.getText();
-            userModel.createUser(firstName, lastName, email, true);
+            userModel.createUser(firstName, lastName, email);
         }
     }
 }
