@@ -1,5 +1,6 @@
 package BLL;
 
+import BE.User;
 import DAL.UserDAO;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,6 +15,9 @@ public class UserManager {
 
     public void createUser(String username, String password, String email, boolean isAdmin) throws SQLException {
         userDAO.createUser(username, password, email, isAdmin);
+    }
+
+    public void updateUser(User user){userDAO.updateUser(user);
     }
 
     public void deleteUser(int userID){

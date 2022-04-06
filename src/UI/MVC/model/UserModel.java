@@ -1,5 +1,6 @@
 package UI.MVC.model;
 
+import BE.User;
 import BLL.UserManager;
 import DAL.UserDAO;
 
@@ -17,6 +18,8 @@ public class UserModel {
     public void createUser(String username, String password, String email, boolean isAdmin) throws SQLException {
         userManager.createUser(username, password, email, isAdmin);
     }
+
+    public void updateUser(User user){userManager.updateUser(user);}
 
     public void deleteUser(int userID){
         userManager.deleteUser(userID);
