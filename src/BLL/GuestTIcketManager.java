@@ -18,7 +18,7 @@ public class GuestTIcketManager {
         return guestTicketDAO.getAllGuestsInEvent(eventID);
     }
 
-    public void createGuest(String firstName, String lastName, int mNumber, String email, int adultNum, int childNum) throws SQLException {
+    public void createGuest(String firstName, String lastName, String mNumber, String email, int adultNum, int childNum) throws SQLException {
         guestTicketDAO.createGuest(firstName, lastName, mNumber, email, adultNum, childNum);
     }
 

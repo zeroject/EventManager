@@ -29,7 +29,7 @@ public class GuestTicketDAO {
                 int id = rs.getInt("ID");
                 String firstName = rs.getString("FName");
                 String lastName = rs.getString("LName");
-                int mobileNumber = rs.getInt("MNumber");
+                String mobileNumber = rs.getString("MNumber");
                 String email = rs.getString("EmailAddress");
                 int  adultNum = rs.getInt("AdultAmount");
                 int  childNum = rs.getInt("ChildAmount");
@@ -52,14 +52,14 @@ public class GuestTicketDAO {
      * @return
      * @throws SQLException
      */
-    public void createGuest(String firstName, String lastName, int mobileNumber, String email, int adultNum, int childNum) throws SQLException {
+    public void createGuest(String firstName, String lastName, String mobileNumber, String email, int adultNum, int childNum) throws SQLException {
         try (Connection conn = connection.getConnection()){
             String sql = "INSERT INTO Guests(FName, LName, MNumber, EmailAddress, AdultAmount, ChildAmount) values (?,?,?,?,?,?);";
 
             try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
                 preparedStatement.setString(1, firstName);
                 preparedStatement.setString(2, lastName);
-                preparedStatement.setInt(3, mobileNumber);
+                preparedStatement.setString(3, mobileNumber);
                 preparedStatement.setString(4, email);
                 preparedStatement.setInt(5, adultNum);
                 preparedStatement.setInt(6, childNum);
@@ -81,7 +81,7 @@ public class GuestTicketDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, guestTicket.getfName());
             preparedStatement.setString(2, guestTicket.getlName());
-            preparedStatement.setInt(3, guestTicket.getmNumber());
+            preparedStatement.setString(3, guestTicket.getmNumber());
             preparedStatement.setString(4, guestTicket.getEmail());
             preparedStatement.setInt(5, guestTicket.getAdultAmount());
             preparedStatement.setInt(6, guestTicket.getChildAmount());

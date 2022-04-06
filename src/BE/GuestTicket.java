@@ -5,12 +5,12 @@ public class GuestTicket {
     int id;
     String fName;
     String lName;
-    int mNumber;
+    String mNumber;
     String email;
     private int adultAmount;
     private int childAmount;
 
-    public GuestTicket(int id, String fName, String lName, int mNumber, String email, int adultAmount, int childAmount){
+    public GuestTicket(int id, String fName, String lName, String mNumber, String email, int adultAmount, int childAmount){
         this.id = id;
         this.fName = fName;
         this.lName = lName;
@@ -40,11 +40,11 @@ public class GuestTicket {
         this.lName = lName;
     }
 
-    public int getmNumber() {
+    public String getmNumber() {
         return mNumber;
     }
 
-    public void setmNumber(int mNumber) {
+    public void setmNumber(String mNumber) {
         this.mNumber = mNumber;
     }
 
