@@ -1,12 +1,13 @@
 package DAL;
 
-import BE.Guest;
 import BE.User;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -14,6 +15,30 @@ public class UserDAO {
 
     public UserDAO() throws IOException {
         connection = new DatabaseConnector();
+    }
+
+    public List<User> getAllUsers() {
+        ArrayList<User> users = new ArrayList<>();
+
+        try(Connection conn = connection.getConnection()){
+            String sql = "SELECT * FROM Users;";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()){
+                int id = rs.getInt("ID");
+                String username = rs.getString("Username");
+                String password = rs.getString("Password");
+                String email = rs.getString("Email");
+                boolean isAdmin = rs.getBoolean("IsAdmin");
+
+                User user = new User(id, username, password, email, isAdmin);
+                users.add(user);
+            }
+        }catch (SQLException throwable){
+            throwable.printStackTrace();
+        }
+        return users;
     }
 
     /**
