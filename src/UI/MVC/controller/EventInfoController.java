@@ -45,6 +45,7 @@ public class EventInfoController implements Initializable {
 
     public EventInfoController() throws IOException {
         event = ParseModel.event;
+        System.out.println(event);
         eventModel = new EventModel();
         taInfoBox = new TextArea(event.getEventInfo());
         txtSearchField = new TextField();
@@ -77,6 +78,8 @@ public class EventInfoController implements Initializable {
         } catch (Exception e){
             e.printStackTrace();
         }
+
+        taInfoBox.setText(event.getEventInfo());
     }
 }
 
