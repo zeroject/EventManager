@@ -91,7 +91,7 @@ public class EventInfoController implements Initializable {
 
         try
         {
-            tvGuestList.setItems(guestTicketModel.getAllGuestsInEvent(1));
+            tvGuestList.setItems(guestTicketModel.getAllGuestsInEvent(event.getId()));
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -120,6 +120,10 @@ public class EventInfoController implements Initializable {
     @FXML
     public void createGuest(){
         CREATESCENE.createScene("../view/createGuestView.fxml", "file:../CSS-Files/main.css", false, this);
+    }
+    @FXML
+    public void createTickets(){
+        CREATESCENE.createScene("../view/TicketTemplate.fxml", "file:../CSS-Files/ticket.css", false, this);
     }
 }
 

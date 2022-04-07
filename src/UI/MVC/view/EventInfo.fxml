@@ -11,7 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.EventInfoController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.EventInfoController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-color">
          <children>
@@ -80,7 +80,7 @@
       <TextArea fx:id="taInfoBox" layoutX="80.0" layoutY="473.0" prefHeight="198.0" prefWidth="571.0" promptText="Info Box" />
       <TextField fx:id="txtSearchField" layoutX="673.0" layoutY="675.0" />
       <Button fx:id="btnSearch" layoutX="840.0" layoutY="676.0" mnemonicParsing="false" text="Search" />
-      <Button fx:id="btnEditInfo" layoutX="82.0" layoutY="442.0" mnemonicParsing="false" text="Edit Info" />
+      <Button fx:id="btnEditInfo" layoutX="80.0" layoutY="430.0" mnemonicParsing="false" text="Edit Info" />
       <TextField fx:id="tfEnd" layoutX="491.0" layoutY="430.0" />
       <TextField fx:id="tfStart" layoutX="491.0" layoutY="399.0" />
       <TextField fx:id="tfDate" layoutX="325.0" layoutY="430.0" />
@@ -88,6 +88,7 @@
       <Label layoutX="156.0" layoutY="404.0" text="Location" />
       <Label layoutX="325.0" layoutY="404.0" text="Date" />
       <Label layoutX="491.0" layoutY="370.0" text="Start and End time" />
-      <Button fx:id="btnCreateGuest" layoutX="1160.0" layoutY="677.0" mnemonicParsing="false" onAction="#createGuest" text="Create Guest" />
+      <Button fx:id="btnCreateGuest" layoutX="1181.0" layoutY="676.0" mnemonicParsing="false" onAction="#createGuest" text="Create Guest" />
+      <Button fx:id="createBtn" layoutX="1074.0" layoutY="676.0" mnemonicParsing="false" onAction="#createTickets" text="Create Tickets" />
    </children>
 </AnchorPane>
