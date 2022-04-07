@@ -40,6 +40,7 @@ public class HomePageController implements Initializable
     public HomePageController() throws IOException
     {
         gridPane = new GridPane();
+        but = new Button();
     }
     @FXML
     public void users(){
@@ -60,7 +61,7 @@ public class HomePageController implements Initializable
     private void addButton()
     {
         if(!(i == 3 && j == 1)){
-            Button temp = new Button(eventModel.getAllEvents().get(i).getEventName());
+            Button temp = new Button(eventModel.getAllEvents().get(btnnumber).getEventName());
             Font font = Font.font("Charcoal", FontWeight.NORMAL, FontPosture.ITALIC, 35);
             ScaleTransition scaleTransitionIN = new ScaleTransition();
             scaleTransitionIN.setDuration(Duration.millis(100));
@@ -74,19 +75,19 @@ public class HomePageController implements Initializable
             scaleTransitionOUT.setToX(1);
             temp.setOnMouseEntered(e -> scaleTransitionIN.playFromStart());
             temp.setOnMouseExited(e -> scaleTransitionOUT.playFromStart());
-            int numButton = i;
             temp.setMinHeight(200);
             temp.setMinWidth(560);
             temp.setPadding(new Insets(-150, 0, 0, 10));
             temp.setAlignment(Pos.BASELINE_LEFT);
             temp.getStyleClass().add("event-buttons");
             temp.setTranslateX(10);
-            temp.setId("" + i);
+            temp.setId("" + btnnumber);
             temp.setFont(font);
             System.out.println(temp);
-            temp.setOnAction(e -> eventWindoesCreater(eventModel.getAllEvents().get(btnnumber)));
+            temp.setOnAction(e -> eventWindoesCreater(temp.getId()));
             gridPane.add(temp, j, i);
             i++;
+            btnnumber++;
             if(i == 3){
                 j++;
                 i = 0;
@@ -106,11 +107,11 @@ public class HomePageController implements Initializable
         }
     }
 
-    private void eventWindoesCreater(Event event){
+    private void eventWindoesCreater(String i){
+        Event event = eventModel.getAllEvents().get(Integer.parseInt(i));
         ParseModel.event = event;
         CREATESCENE.createScene("../view/EventInfo.fxml", "file:../CSS-Files/main.css", false, this);
         Stage stage = (Stage) but.getScene().getWindow();
-        btnnumber++;
         stage.close();
     }
 }
