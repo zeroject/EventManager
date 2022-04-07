@@ -50,13 +50,7 @@ public class EventInfoController implements Initializable {
     @FXML
     private TextArea taInfoBox;
     @FXML
-    private TextField txtSearchField;
-    @FXML
-    private Button btnSearch;
-    @FXML
     private Button btnEditInfo;
-    @FXML
-    private Button but;
     @FXML
     private PieChart chart;
 
@@ -74,8 +68,6 @@ public class EventInfoController implements Initializable {
         guest = ParseModel.guestTicket;
         eventModel = new EventModel();
         taInfoBox = new TextArea(event.getEventInfo());
-        txtSearchField = new TextField();
-        btnSearch = new Button();
         chart = new PieChart();
         btnEditInfo = new Button();
         tvGuestList = new TableView<>();
@@ -126,13 +118,13 @@ public class EventInfoController implements Initializable {
     @FXML
     public void users(){
         CREATESCENE.createScene("../view/ManageUsers.fxml", "file:../CSS-Files/main.css", false, this);
-        Stage stage = (Stage) but.getScene().getWindow();
+        Stage stage = (Stage) btnEditInfo.getScene().getWindow();
         stage.close();
     }
     @FXML
     public void home(){
         CREATESCENE.createScene("../view/HomePage.fxml", "file:../CSS-Files/main.css", false, this);
-        Stage stage = (Stage) but.getScene().getWindow();
+        Stage stage = (Stage) btnEditInfo.getScene().getWindow();
         stage.close();
     }
     @FXML
