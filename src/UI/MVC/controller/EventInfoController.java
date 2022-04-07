@@ -9,6 +9,7 @@ import UI.MVC.model.ParseModel;
 import UI.Utility.CREATESCENE;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -54,6 +55,8 @@ public class EventInfoController implements Initializable {
     private Button btnEditInfo;
     @FXML
     private Button but;
+    @FXML
+    private PieChart chart;
 
     GuestTicketModel guestTicketModel = new GuestTicketModel();
 
@@ -70,6 +73,7 @@ public class EventInfoController implements Initializable {
         txtSearchField = new TextField();
         btnSearch = new Button();
         btnEditInfo = new Button();
+        chart = new PieChart();
         tvGuestList = new TableView<>();
         tcGuestEmail = new TableColumn<>();
         tcGuestFName = new TableColumn<>();
@@ -120,6 +124,10 @@ public class EventInfoController implements Initializable {
     @FXML
     public void createGuest(){
         CREATESCENE.createScene("../view/createGuestView.fxml", "file:../CSS-Files/main.css", false, this);
+    }
+    @FXML
+    public void removeGuest(){
+        guestTicketModel.deleteGuest(tvGuestList.getSelectionModel().getSelectedItem().getId());
     }
     @FXML
     public void createTickets(){

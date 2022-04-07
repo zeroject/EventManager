@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.EventInfoController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../../CSS-Files/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.EventInfoController">
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="5.0" styleClass="sidebar-color">
          <children>
@@ -89,6 +90,8 @@
       <Label layoutX="325.0" layoutY="404.0" text="Date" />
       <Label layoutX="491.0" layoutY="370.0" text="Start and End time" />
       <Button fx:id="btnCreateGuest" layoutX="1181.0" layoutY="676.0" mnemonicParsing="false" onAction="#createGuest" text="Create Guest" />
-      <Button fx:id="createBtn" layoutX="1074.0" layoutY="676.0" mnemonicParsing="false" onAction="#createTickets" text="Create Tickets" />
+      <Button fx:id="createBtn" layoutX="991.0" layoutY="676.0" mnemonicParsing="false" onAction="#createTickets" text="Create Tickets" />
+      <Button fx:id="btnRemoveGuest" layoutX="1084.0" layoutY="676.0" mnemonicParsing="false" onAction="#removeGuest" text="Remove Guest" />
+      <PieChart fx:id="chart" layoutX="181.0" layoutY="20.0" prefHeight="340.0" prefWidth="385.0" />
    </children>
 </AnchorPane>
