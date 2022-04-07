@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 public class CreateController implements Initializable
@@ -46,12 +47,13 @@ public class CreateController implements Initializable
     @FXML
     public void createEventHandler() throws SQLException {
         String eventName = eventNameField.getText();
-        String eventDate = eventDayField.getChronology().toString();
+        String eventDate = String.valueOf(eventDayField.converterProperty());
         String eventLocation = eventLocationField.getText();
         String eventInfo = eventInfoField.getText();
         String eventStartTime = eventTimeField.getText();
         String eventEndTime = eventTimeField1.getText();
-        eventModel.createEvent(eventName,eventDate,eventLocation,eventInfo,eventStartTime,eventEndTime);
+
+        eventModel.createEvent(eventName, eventDate, eventLocation, eventInfo, eventStartTime, eventEndTime);
     }
 
 }
