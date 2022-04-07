@@ -7,6 +7,8 @@ import UI.MVC.model.EventModel;
 import UI.MVC.model.GuestTicketModel;
 import UI.MVC.model.ParseModel;
 import UI.Utility.CREATESCENE;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
@@ -59,6 +61,8 @@ public class EventInfoController implements Initializable {
     private PieChart chart;
 
     GuestTicketModel guestTicketModel = new GuestTicketModel();
+    private double voksen = 0;
+    private double barn = 0;
 
     private CREATESCENE CREATESCENE = new CREATESCENE();
     private EventModel eventModel;
@@ -72,8 +76,8 @@ public class EventInfoController implements Initializable {
         taInfoBox = new TextArea(event.getEventInfo());
         txtSearchField = new TextField();
         btnSearch = new Button();
-        btnEditInfo = new Button();
         chart = new PieChart();
+        btnEditInfo = new Button();
         tvGuestList = new TableView<>();
         tcGuestEmail = new TableColumn<>();
         tcGuestFName = new TableColumn<>();
@@ -105,8 +109,18 @@ public class EventInfoController implements Initializable {
         tfLocation.setText(event.getEventLocation());
         tfStart.setText(event.getStartTime());
         tfEnd.setText(event.getEndTime());
-
-
+        for (int j = 0; j < guestTicketModel.getAllGuestsInEvent(ParseModel.event.getId()).size(); j++) {
+            voksen += guestTicketModel.getAllGuestsInEvent(ParseModel.event.getId()).get(j).getAdultAmount();
+            barn += guestTicketModel.getAllGuestsInEvent(ParseModel.event.getId()).get(j).getChildAmount();
+        }
+        System.out.println(voksen);
+        System.out.println(barn);
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                        new PieChart.Data("Voksne antal: " + voksen, voksen),
+                        new PieChart.Data("Børn antal: " + barn, barn));
+        chart.setTitle("Alders Gruppe");
+        chart.setData(pieChartData);
     }
 
     @FXML
