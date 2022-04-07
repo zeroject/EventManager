@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelBuffer;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
@@ -21,20 +22,18 @@ import java.util.ResourceBundle;
 public class TicketTemplateController implements Initializable {
 
     @FXML
-    private Label ticketID;
+    private AnchorPane ticket;
 
     public TicketTemplateController() {
-        ticketID = new Label();
         getSnapshot();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     public void getSnapshot() {
-        WritableImage image = ticketID.snapshot(new SnapshotParameters(), null);
+        WritableImage image = ticket.snapshot(new SnapshotParameters(), null);
         System.out.println("dette er et billede" + image);
 
         FileChooser fileChooser = new FileChooser();

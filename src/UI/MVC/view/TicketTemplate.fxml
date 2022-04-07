@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="250.0" prefWidth="600.0" styleClass="outline" stylesheets="@../../CSS-Files/ticket.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.TicketTemplateController">
+<AnchorPane fx:id="ticket" prefHeight="250.0" prefWidth="600.0" styleClass="outline" stylesheets="@../../CSS-Files/ticket.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MVC.controller.TicketTemplateController">
    <children>
       <AnchorPane layoutX="35.0" layoutY="35.0" prefHeight="190.0" prefWidth="190.0" styleClass="outline" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
          <children>
