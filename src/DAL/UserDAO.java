@@ -50,7 +50,7 @@ public class UserDAO {
      */
     public void createUser(String username, String password, String email) throws SQLException {
         try (Connection conn = connection.getConnection()){
-            String sql = "INSERT INTO Users(Username, Password, Email) values (?,?,?,?);";
+            String sql = "INSERT INTO Users(Username, Password, Email) values (?,?,?);";
 
             try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
                 preparedStatement.setString(1, username);
