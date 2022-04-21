@@ -89,23 +89,8 @@ public class TicketTemplateController implements Initializable {
 
     public void getSnapshot() throws IOException {
         WritableImage snapshot = ticketID.getScene().snapshot(null);
-        BufferedImage fromFXImage = SwingFXUtils.fromFXImage(snapshot, null);
-        BufferedImage pngImage = null;
-        byte[] imageInByte;
-        try
-        {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ImageIO.write(fromFXImage, "png", byteArrayOutputStream);
-            byteArrayOutputStream.flush();
-            imageInByte = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.close();
-            InputStream in = new ByteArrayInputStream(imageInByte);
-            pngImage = ImageIO.read(in);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        BufferedImage pngImage = SwingFXUtils.fromFXImage(snapshot, null);
+
         File file = new File("src/UI/Pics/tickets/ticket" + guestNumber + ".png");
         try {
             ImageIO.write(pngImage, "png", file);
