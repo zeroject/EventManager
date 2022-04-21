@@ -2,6 +2,7 @@ package UI.MVC.model;
 
 import BE.User;
 import BLL.UserManager;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ public class UserModel {
     private UserManager userManager;
 
     public UserModel() throws IOException {
+        userList = FXCollections.observableArrayList();
         userManager = new UserManager();
     }
 

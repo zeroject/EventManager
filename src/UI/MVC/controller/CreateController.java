@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class CreateController implements Initializable
@@ -47,7 +48,7 @@ public class CreateController implements Initializable
     @FXML
     public void createEventHandler() throws SQLException {
         String eventName = eventNameField.getText();
-        String eventDate = String.valueOf(eventDayField.converterProperty());
+        String eventDate = String.valueOf(eventDayField.getValue());
         String eventLocation = eventLocationField.getText();
         String eventInfo = eventInfoField.getText();
         String eventStartTime = eventTimeField.getText();
