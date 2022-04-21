@@ -96,7 +96,7 @@ public class GuestTicketDAO {
     }
 
     /**
-     * checks what the ID of a specific GuestTicket and then first deletes the guests tickets and then the specific guestTicket
+     * checks what the ID of a specific GuestTicket and then first deletes it
      * @param guestID of the object that is to be deleted
      */
     public void deleteGuest(int guestID){
