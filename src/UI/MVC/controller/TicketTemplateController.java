@@ -59,6 +59,11 @@ public class TicketTemplateController implements Initializable {
         guestTicketModel = new GuestTicketModel();
     }
 
+    /**
+     * metode der initialisere tekst på billeten for hver gæst
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Event event = ParseModel.event;
@@ -86,7 +91,10 @@ public class TicketTemplateController implements Initializable {
         }
     }
 
-
+    /**
+     * metode der tager et billede af et javafx vindue og gemmer det som en png
+     * @throws IOException
+     */
     public void getSnapshot() throws IOException {
         WritableImage snapshot = ticketID.getScene().snapshot(null);
         BufferedImage pngImage = SwingFXUtils.fromFXImage(snapshot, null);
