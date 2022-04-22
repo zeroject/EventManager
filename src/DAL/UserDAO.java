@@ -17,6 +17,10 @@ public class UserDAO {
         connection = new DatabaseConnector();
     }
 
+    /**
+     * metode til at få alle brugere
+     * @return liste af brugere
+     */
     public List<User> getAllUsers() {
         ArrayList<User> users = new ArrayList<>();
 

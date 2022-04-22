@@ -10,7 +10,16 @@ public class Event {
     private String startTime;
     private String endTime;
 
-
+    /**
+     * Event entitet til at holde på information om events
+     * @param id eventets id
+     * @param eventName navnet på eventet
+     * @param eventDate datoen på eventet
+     * @param eventLocation placeringen af eventet
+     * @param eventInfo ekstra information om eventet
+     * @param startTime start tiden af eventet
+     * @param endTime slut tiden på eventet
+     */
     public Event(int id, String eventName, String eventDate, String eventLocation, String eventInfo, String startTime, String endTime){
         this.id = id;
         this.eventName = eventName;

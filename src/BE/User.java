@@ -7,6 +7,13 @@ public class User {
     private String password;
     private String email;
 
+    /**
+     * User entitet til at holde på event managers information
+     * @param id id på en event manager
+     * @param username username på eventmanager
+     * @param password password på eventmanager
+     * @param email eventamangers email
+     */
     public User(int id, String username, String password, String email){
         this.id = id;
         this.username = username;

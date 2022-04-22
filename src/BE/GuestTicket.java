@@ -10,6 +10,16 @@ public class GuestTicket {
     private int adultAmount;
     private int childAmount;
 
+    /**
+     * GuestTicket entitet til at holde styr på gæster og deres billet
+     * @param id id'en på gæsten billet
+     * @param fName gæstens fornavn
+     * @param lName gæstens efternavn
+     * @param mNumber gæstens mobilnummer
+     * @param email gæstens email
+     * @param adultAmount mængden af voksne der deltager under en billet
+     * @param childAmount mængden af børn der deltager under en billet
+     */
     public GuestTicket(int id, String fName, String lName, String mNumber, String email, int adultAmount, int childAmount){
         this.id = id;
         this.fName = fName;

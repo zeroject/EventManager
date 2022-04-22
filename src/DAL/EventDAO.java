@@ -14,6 +14,10 @@ public class EventDAO {
         connection = new DatabaseConnector();
     }
 
+    /**
+     * metode til at få alle events far databasen
+     * @return liste af events
+     */
     public List<Event> getAllEvents() {
         ArrayList<Event> events = new ArrayList<>();
 
@@ -40,6 +44,16 @@ public class EventDAO {
         return events;
     }
 
+    /**
+     * metode til at oprette et event i databasen
+     * @param eventName
+     * @param eventDate
+     * @param eventLocation
+     * @param eventInfo
+     * @param startTime
+     * @param endTime
+     * @throws SQLException
+     */
     public void createEvent(String eventName, String eventDate, String eventLocation, String eventInfo, String startTime, String endTime) throws SQLException {
         try (Connection conn = connection.getConnection()){
             String sql = "INSERT INTO Events(EventName, EventDate, EventLocation, EventInfo, StartTime, EndTime) values (?,?,?,?,?,?);";
@@ -82,6 +96,10 @@ public class EventDAO {
         }
     }
 
+    /**
+     * metode til at slette et event
+     * @param eventID id af event der skal slettes
+     */
     public void deleteEvent(int eventID){
         try(Connection conn = connection.getConnection()){
             String sql1 = "DELETE FROM Guests WHERE EventID=?;";

@@ -15,6 +15,11 @@ public class GuestTicketDAO {
         connection = new DatabaseConnector();
     }
 
+    /**
+     * metode til at få alle gæster i et specifikt event
+     * @param eventID event gæster skal komme fra
+     * @return liste af gæster
+     */
     public List<GuestTicket> getAllGuestsInEvent(int eventID) {
         ArrayList<GuestTicket> guestTickets = new ArrayList<>();
         PreparedStatement query;
