@@ -42,6 +42,10 @@ public class HomePageController implements Initializable
         gridPane = new GridPane();
         but = new Button();
     }
+
+    /**
+     * creates a new scene to swap to
+     */
     @FXML
     public void users(){
         CREATESCENE.createScene("../view/ManageUsers.fxml", "file:../CSS-Files/main.css", false, this);

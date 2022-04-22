@@ -17,20 +17,42 @@ public class EventModel {
         eventManager = new EventManager();
     }
 
+    /**
+     * Funktion som giver en liste med alle events
+     * @return arrayList med Events i
+     */
     public ObservableList<Event> getAllEvents(){
         eventList.clear();
         eventList.addAll(eventManager.getAllEvents());
         return eventList;
     }
 
+    /**
+     *  Funktion som sender parameternes værdier til eventManagerne
+     * @param eventName
+     * @param eventDate
+     * @param eventLocation
+     * @param eventInfo
+     * @param startTime
+     * @param endTime
+     * @throws SQLException
+     */
     public void createEvent(String eventName, String eventDate, String eventLocation, String eventInfo, String startTime, String endTime) throws SQLException {
         eventManager.createEvent(eventName, eventDate, eventLocation, eventInfo, startTime, endTime);
     }
 
+    /**
+     * Sender et event vidre til eventManager
+     * @param event
+     */
     public void updateEvent(Event event){
         eventManager.updateEvent(event);
     }
 
+    /**
+     * Sender et ID ned eventManager som skal slettes
+     * @param eventID
+     */
     public void deleteEvent(int eventID){
         eventManager.deleteEvent(eventID);
     }
