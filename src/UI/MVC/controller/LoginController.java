@@ -14,6 +14,10 @@ public class LoginController {
     public LoginController(){
         CREATESCENE = new CREATESCENE();
     }
+
+    /**
+     * creates our logic scene
+     */
     @FXML
     private void login(){
         CREATESCENE.createScene("../view/HomePage.fxml", "file:../CSS-Files/main.css", false, this);

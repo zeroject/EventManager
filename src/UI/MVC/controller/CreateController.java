@@ -29,6 +29,11 @@ public class CreateController implements Initializable
     @FXML
     private TextField eventTimeField1;
 
+    /**
+     * sets promt texts to each text fields
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         eventNameField.setPromptText("example: Music Festival");
@@ -45,6 +50,11 @@ public class CreateController implements Initializable
         eventLocationField = new TextField();
         eventDayField = new DatePicker();
     }
+
+    /**
+     * handles the creation of a new event, takes what is filled in the textfield and sends it to database
+     * @throws SQLException
+     */
     @FXML
     public void createEventHandler() throws SQLException {
         String eventName = eventNameField.getText();

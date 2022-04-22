@@ -44,6 +44,11 @@ public class ManageUsersController implements Initializable {
         tcID = new TableColumn<>();
     }
 
+    /**
+     * adds the values of admin/managers to a table
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tvUsers.setPlaceholder(new Label("No users found in database"));
